@@ -453,19 +453,26 @@ transform: translateY(0.25rem);
   transform: translatey(-0.5rem);
 }
 
-
+.about__data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 
 /* ==================== DOWNLOAD BUTTON ==================== */
 .about__buttons {
   display: flex;
-  position: fixed; /* Make it fixed relative to the viewport */
-  bottom: 2rem; /* Position it just above the bottom of the screen */
-  left: 50%; /* Align it horizontally to the center */
-  transform: translateX(-50%); /* Adjust for exact horizontal centering */
-  z-index: 2; /* Ensure it's on top of other elements */
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  width: auto; /* Allow it to take the width of its content */
+  align-self: center; /* Center it within the flex container */
 }
 
+.about__buttons a {
+  display: inline-block; /* Ensure the buttons are inline */
+}
 /* The button container with the dropdown */
 .button__content {
   display: none;
