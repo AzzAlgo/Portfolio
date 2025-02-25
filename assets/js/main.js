@@ -74,7 +74,7 @@ tabs.forEach(tab =>{
 
 
 /*==================== PORTFOLIO SWIPER  ====================*/
-const swiper = new Swiper('.mySwiper', {
+let swiper = new Swiper('.mySwiper', {
     loop: true,
     navigation: {
         nextEl: '.swiper-button-next',

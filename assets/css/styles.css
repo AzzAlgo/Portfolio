@@ -220,8 +220,7 @@ img {
   box-shadow: 0 -1px 4px rgba(0, 0, 0, .15);
   border-radius: 1.5rem 1.5rem 0 0;
   transition: .3s;
-  visibility: visible;
-  display: block;
+
 }
 
 @media screen and (min-width: 767px) {
@@ -441,15 +440,18 @@ transform: translateY(0.25rem);
 
 .about__info:hover{
   background-color: var(--first-color-alt);
+  }
+.about__info-title{
+  display:block;
+  font-size: var(--big-font-size);
+  transform: translatey(-0.5rem);
 
 }
-.about__info-title,
 .about__info-name{
   display:block;
   font-size: var(--smaller-font-size);
   transform: translatey(-0.5rem);
 }
-
 
 
 
@@ -730,7 +732,6 @@ color: var(--text-color-light);
 .mySwiper {
   position: relative;
   overflow: hidden;
-  z-index: 2;
 }
 
 
