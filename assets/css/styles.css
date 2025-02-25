@@ -7,7 +7,7 @@
 
     /*========== Colors ==========*/
     /* Change favorite color */
-    --hue-color: 230; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
+    --hue-color: 225; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
 
     /* HSL color mode */
     --first-color: hsl(var(--hue-color), 69%, 61%);
@@ -159,7 +159,7 @@ img {
 
 /*==================== LAYOUT ====================*/
 .container {
-  max-width: 1080px;
+  max-width: 768px;
   margin-left: var(--mb-1-5);
   margin-right: var(--mb-1-5);
 }
@@ -185,6 +185,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+ 
 }
 
 .nav__logo,
@@ -208,47 +209,58 @@ img {
 
 }
 
-/* Font size for large devices */
+/*==================== MENU SHOW Y HIDDEN ====================*/
+.nav__menu {
+  position: fixed;
+  bottom: -100%; /* Ensures menu starts off-screen */
+  left: 0;
+  width: 100%;
+  background-color: var(--body-color);
+  padding: 2rem 1.5rem 4rem;
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, .15);
+  border-radius: 1.5rem 1.5rem 0 0;
+  transition: .3s;
+  visibility: visible;
+  display: block;
+}
+
 @media screen and (min-width: 767px) {
-  .nav__menu{
+  .nav__menu {
     position: fixed;
-    bottom: -100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--body-color);
-    padding: 2rem 1.5rem 4rem;
-    box-shadow: 0 -1px 4px rgba(0, 0, 0, .15);
-    border-radius: 1.5rem 1.5rem 0 0 ;
-    transition: .3s;
-   }
+    bottom: -200%; /* Make sure the menu is off-screen for large screens */
+  }
 }
 
-.nav__list{
-  display: flex;
-  justify-content: center;
- 
+/* show menu */
+.show-menu {
+  bottom: 0%;
 }
 
-.nav__link{
+/* Other CSS rules */
+.nav__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.nav__link {
   display: flex;
   flex-direction: column;
-  align-items:  center;
+  align-items: center;
   font-size: var(--small-font-size);
   color: var(--title-color);
   font-weight: var(--font-medium);
-
 }
 
-.nav__link:hover{
+.nav__link:hover {
   color: var(--first-color);
 }
 
-
-.nav__icon{
+.nav__icon {
   font-size: 1.2rem;
 }
 
-.nav__close{
+.nav__close {
   position: absolute;
   right: 1.3rem;
   bottom: .5rem;
@@ -257,20 +269,8 @@ img {
   color: var(--first-color);
 }
 
-.nav__close:hover{
+.nav__close:hover {
   color: var(--first-color);
-
-
-}
-/* show menu */
-.show-menu{
-  bottom: 0%;
-}
-
-/* Active link */
-.active-link{
-  color: var(--first-color);
-
 }
 
 /* Change background header */
@@ -308,7 +308,7 @@ color: var(--first-color);
   }
 
 .home__blob{
-  width: 200px;  
+  width: 100px;  
   fill: var(--first-color);
 
   }
@@ -317,7 +317,7 @@ color: var(--first-color);
 
 
 .home__blob-img{
-  width: 185px;
+  width: 220px;
 }
   
 
@@ -406,35 +406,27 @@ transform: translateY(0.25rem);
 }
 /*==================== ABOUT ====================*/
 
-.about__container{
- display: grid;
- grid-template-columns: 1fr 3fr ;
- gap: 1rem;
 
-}
 .about__img{
-  border: 0.1rem solid var(--first-color);
+  width: 200px;
   border-radius: .5rem;
-  height: fit-content;
-  max-height: 35rem;
   justify-self: center;
   align-self: center;
-  overflow: hidden;
+ 
 
 }
 
 .about__description{
-  text-align: justify;
+  text-align: center;
   margin-bottom: var(--mb-0-25);
 
 }
 
 .about__infos{
-  display: grid;
-  grid-template-columns: repeat(3 ,1fr);
+  display: flex;
   justify-content: space-evenly;
   gap: 3rem;
-  margin: 3rem 0 1.5rem;
+  margin-top: var(--mb-2-5);
 }
 
 .about__info{
@@ -445,15 +437,15 @@ transform: translateY(0.25rem);
   font-weight: var(--font-medium) ;
   text-align: center;
 
-
-
 }
 
 .about__info:hover{
   background-color: var(--first-color-alt);
 
 }
+.about__info-title,
 .about__info-name{
+  display:block;
   font-size: var(--smaller-font-size);
   transform: translatey(-0.5rem);
 }
@@ -462,22 +454,23 @@ transform: translateY(0.25rem);
 
 
 
-/* ==================== dowload button ====================  */
-
-.about__buttons{
-  display: block;
-
-
-
+/* ==================== DOWNLOAD BUTTON ==================== */
+.about__buttons {
+  display: flex;
+  position: fixed; /* Make it fixed relative to the viewport */
+  bottom: 2rem; /* Position it just above the bottom of the screen */
+  left: 50%; /* Align it horizontally to the center */
+  transform: translateX(-50%); /* Adjust for exact horizontal centering */
+  z-index: 2; /* Ensure it's on top of other elements */
 }
 
-
-.button__content{
+/* The button container with the dropdown */
+.button__content {
   display: none;
   background-color: var(--first-color);
-  width: 100px;
+  width: 150px; /* Adjust width of dropdown */
   border-radius: 0.5rem;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -490,13 +483,20 @@ transform: translateY(0.25rem);
 }
 
 /* Change color of dropdown links on hover */
-.button__content a:hover {background-color:var(--first-color-lighter)}
+.button__content a:hover {
+  background-color: var(--first-color-lighter);
+}
 
 /* Show the dropdown menu on hover */
-.about__buttons:hover .button__content {display: block;}
+.about__buttons:hover .button__content {
+  display: block;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.about__buttons:hover .button {background-color: var(--first-color-alt)}
+.about__buttons:hover .button {
+  background-color: var(--first-color-alt);
+}
+
 /*==================== SKILLS ====================*/
 
 .skills__container{
@@ -702,19 +702,56 @@ color: var(--text-color-light);
 
 
 /*==================== pROJECTS ====================*/
-.project__content {
-  display: flex;  /* Use CSS Grid */
-  justify-items: center;  /* Center items within their grid cells */
-  align-items: center;  /* Center items vertically */
-  max-width: 800px;
-  margin: 0 AUTO;
-  margin-bottom: 15rem;
+.projects__container{
+  overflow: initial;
+}
+.project__content{
+  padding: 0  1.5rem;
+}
+.project__img{
+  width: 250px;
+  border-radius: 0.5rem;
+  justify-self: center;
+
 }
 
-.project__list-item {
-  width: 100%;  /* Make sure the item takes up the full width of the grid cell */
-  text-align: center;  /* Center text inside the list item */
-  margin-bottom: 10px;
+.project__title{
+  font-size: var(--h3-font-size);
+  margin-bottom: var(--mb-0-5);
+}
+
+.project__description{
+  margin-bottom: var(--mb-0-75);
+}
+.project__title{
+  font-size: var(--h3-font-size);
+  margin-bottom: var(--mb-0-5);
+}
+.mySwiper {
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--first-color);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.swiper-button-next {
+  right: 10px;
+}
+
+.swiper-button-prev {
+  left: 10px;
+}
+
+.swiper-pagination {
+  bottom: 10px;
+  text-align: center;
 }
 
 /*==================== CONTACT ME ====================*/
@@ -882,12 +919,15 @@ color: var(--text-color-light);
   .container{
     margin-left: var(--mb-1);
     margin-right: var(--mb-1);
+   
   }
   .nav__menu{
     padding: 2rem .25rem 4rem;
+    
   }
   .nav__list{
     column-gap: 0;
+    
   }
 
   .home__content{

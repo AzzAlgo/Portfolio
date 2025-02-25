@@ -1,24 +1,22 @@
 /*==================== MENU SHOW Y HIDDEN ====================*/
 const navMenu = document.getElementById('nav-menu'),
     navToggle = document.getElementById('nav-toggle'),
-    navClose = document.getElementById('nav-close')
+    navClose = document.getElementById('nav-close');
+
 /*===== MENU SHOW =====*/
 /* Validate if constant exists */
-if (navToggle){
-    navToggle.addEventListener('click',() =>{
-        navMenu.classList.add("show-menu")
-
-    })
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.add("show-menu"); // Show the menu on click
+    });
 }
 
 /*===== MENU HIDDEN =====*/
 /* Validate if constant exists */
-if(navClose){
-    navClose.addEventListener('click', () =>{
-        navMenu.classList.remove("show-menu")
-    })
-
-
+if (navClose) {
+    navClose.addEventListener('click', () => {
+        navMenu.classList.remove("show-menu"); // Hide the menu on close
+    });
 }
 
 
@@ -76,6 +74,19 @@ tabs.forEach(tab =>{
 
 
 /*==================== PORTFOLIO SWIPER  ====================*/
+const swiper = new Swiper('.mySwiper', {
+    loop: true,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    slidesPerView: 1,
+    spaceBetween: 30,
+});
 
 /*==================== TESTIMONIAL ====================*/
 
