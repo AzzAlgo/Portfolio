@@ -282,7 +282,6 @@ img {
   gap: 1rem;
 }
 .home__content{
-
   grid-template-columns: .5fr, 3fr;
   padding-top: 3.5rem;
   align-items: center;
@@ -296,7 +295,7 @@ img {
 }
 
 .home__social-icon{
-font-size: 1.25rem;
+font-size: 2rem;
 color: var(--first-color);
 
 }
@@ -307,19 +306,51 @@ color: var(--first-color);
   }
 
 .home__blob{
-  width: 100px;  
+  width: 100px;
   fill: var(--first-color);
-
+  overflow: visible;
+  
   }
 
+  .blob-path {
+    fill: #6C63FF;
+    animation: blob-morph 8s infinite ease-in-out;
+}
 
 
 
 .home__blob-img{
-  width: 220px;
+  width: 100px;
 }
-  
+.home__img {
+  width: 200px;
+  height: 200px;
+  border-radius: 60% 40% 40% 60% / 60% 40% 60% 40%;
+  overflow: hidden;
+  animation: flow 4s infinite ease-in-out;
+  background-color: var(--first-color)
+}
 
+.home__img img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+@keyframes flow {
+  0% {
+    border-radius: 60% 40% 40% 60% / 60% 40% 60% 40%;
+  }
+  35% {
+    border-radius: 80% 70% 60% 60% / 80% 70% 60% 60%;
+  }
+  75% {
+    border-radius: 70% 90% 60% 70% / 60% 40% 60% 40%;
+  }
+  100% {
+    border-radius: 60% 40% 40% 60% / 60% 40% 60% 40%;
+  }
+}
 
 .home__data{
   grid-column: 1/3;
@@ -386,9 +417,13 @@ transform: translateY(0.25rem);
   font-weight: var(--font-medium) ;
 }
 
-.button:hover{
+.button:hover {
   background-color: var(--first-color-alt);
+  transform: translateX(0.1rem) translateY(0.1rem);
+}
 
+.button:active {
+  transform: translateX(0.2rem) translateY(0.2rem);
 }
 
 .button__icon{
@@ -408,15 +443,27 @@ transform: translateY(0.25rem);
 
 .about__img{
   width: 200px;
-  border-radius: .5rem;
+  border-radius: 50%;
   justify-self: center;
   align-self: center;
- 
+ border: 3px solid var(--first-color);
+  box-sizing: border-box;  /* Ensures the border is included in the element's dimensions */ 
+  position: relative;
+}
 
+.about__img::before{
+ content:'';
+ position: absolute; 
+ height: 100%;
+ width: 100%;
+ background: red;
+ top: 50%;
+ left: 50%;
+ z-index: 10;
 }
 
 .about__description{
-  text-align: center;
+  text-align: justify;
   margin-bottom: var(--mb-0-25);
 
 }
@@ -466,18 +513,35 @@ transform: translateY(0.25rem);
   justify-content: center;
   gap: 1rem;
   margin-top: 2rem;
-  width: auto; /* Allow it to take the width of its content */
-  align-self: center; /* Center it within the flex container */
+  width: auto;
+  align-self: center;
+  position: relative; /* Needed for dropdown positioning */
 }
 
 .about__buttons a {
-  display: inline-block; /* Ensure the buttons are inline */
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  background-color: var(--first-color);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
-/* The button container with the dropdown */
+
+.about__buttons a:hover {
+  background-color: var(--first-color-alt);
+}
+
+/* The dropdown menu container */
 .button__content {
   display: none;
+  position: absolute;
+  top: 100%; /* Position below the button */
+  left: 0;
   background-color: var(--first-color);
-  width: 150px; /* Adjust width of dropdown */
+  width: 150px;
   border-radius: 0.5rem;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -489,11 +553,12 @@ transform: translateY(0.25rem);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  transition: background-color 0.3s;
 }
 
 /* Change color of dropdown links on hover */
 .button__content a:hover {
-  background-color: var(--first-color-lighter);
+  background-color: var(--first-color-alt);
 }
 
 /* Show the dropdown menu on hover */
@@ -501,10 +566,7 @@ transform: translateY(0.25rem);
   display: block;
 }
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.about__buttons:hover .button {
-  background-color: var(--first-color-alt);
-}
+
 
 /*==================== SKILLS ====================*/
 
@@ -580,31 +642,25 @@ display:block;
 background-color: var(--first-color);
 
 }
-.skills__french{
+.skills__100{
+  width: 100%;
+}
+
+.skills__90{
   width: 90%;
 }
 
-.skills__english{
-  width: 90%;
+.skills__80{
+  width: 80%;
 }
 
-.skills__msproject{
+.skills__70{
   width: 70%;
 }
-
-.skills__p6{
-  width: 90%;
+.skills__50{
+  width: 50%;
 }
 
-.skills__autocad{
-  width: 90%;
-}
-.skills__autocad3d{
-  width: 90%;
-}
-.skills__catia{
-  width: 20%;
-}
 
 
 .skills__close .skills__list{
@@ -871,9 +927,17 @@ color: var(--text-color-light);
 
 }
 .footer__title,
+.footer__socials,
 .footer__subtitle,
 .footer__link{
   color: #fff;
+}
+.footer__social{
+ font-size: 2rem;
+ margin-right: var(--mb-1-5);
+}
+.footer__social:hover{
+  color: var(--first-color-lighter);
 }
 
 /*========== SCROLL UP ==========*/
@@ -929,6 +993,7 @@ color: var(--text-color-light);
     margin-right: var(--mb-1);
    
   }
+
   .nav__menu{
     padding: 2rem .25rem 4rem;
     
@@ -944,7 +1009,7 @@ color: var(--text-color-light);
   }
 
   .home__blob{
-    width: 180px;
+    width: 200px;
   }
 
   .skills__title{
@@ -959,6 +1024,11 @@ color: var(--text-color-light);
   .project__img{
     width: 200px;
   }
+
+  .home__social-icon{
+    font-size: 2rem;
+  }
+
 }
 
 /* For medium devices */
@@ -987,6 +1057,9 @@ color: var(--text-color-light);
     display: grid;
     grid-template-columns: .6fr;
     justify-content: center;
+  }
+  .home__social-icon{
+    font-size: 2rem;
   }
 
 
@@ -1062,7 +1135,7 @@ color: var(--text-color-light);
   }
 
   .about__description{
-    text-align: initial;
+    text-align: justify;
 
   }
 
@@ -1109,6 +1182,9 @@ color: var(--text-color-light);
   }
   .footer__copy{
     margin-top: 4.5rem;
+  }
+  .home__social-icon{
+    font-size: 2rem;
   }
 
 }
