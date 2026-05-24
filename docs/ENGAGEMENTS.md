@@ -102,10 +102,10 @@ across the organisation.
 
 ---
 
-## ★ Engagement 03 — Plant Manager, International Projects · Nuclear valves
+## ★ Engagement 03 — UK Program Manager · Nuclear valves
 
 `Nuclear · Defence · Low-carbon valves`
-**Role:** Plant Manager — International Projects ("Responsable de plateau")
+**Role:** UK Program Manager
 **Budget:** *multi-project portfolio*
 **Duration:** 12 months (current)
 **Country:** France
@@ -387,7 +387,7 @@ Featured for the homepage:
 
 1. ★ 01 — Cost Manager · > 1 B€ Advanced Modular Reactor programme
 2. ★ 02 — Senior PM · Gen-III nuclear LV switchboards · ~110 M€
-3. ★ 03 — Plant Manager · International Nuclear Valve plateau (current)
+3. ★ 03 — UK Program Manager · Nuclear valve plateau (current)
 4. ★ 04 — Project Engineer · LNG compressors across 3 countries
 5. ★ 05 — Team Leader · MBR water-treatment EPC plants (Suido Kiko)
 
