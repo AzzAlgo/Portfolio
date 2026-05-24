@@ -1,158 +1,192 @@
-/*==================== MENU SHOW Y HIDDEN ====================*/
-const navMenu = document.getElementById('nav-menu'),
-    navToggle = document.getElementById('nav-toggle'),
-    navClose = document.getElementById('nav-close');
+/* =============================================================
+   main.js — Azzam HANNOUF site behaviour
+   No frameworks. No external runtime dependencies.
+   ============================================================= */
+'use strict';
 
-/*===== MENU SHOW =====*/
-/* Validate if constant exists */
-if (navToggle) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.add("show-menu"); // Show the menu on click
+(() => {
+
+  const $  = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+  /* ----------- THEME (dark / light) ----------- */
+  const STORAGE_KEY = 'azzam-theme';
+  const root = document.documentElement;
+
+  function applyTheme(theme) {
+    root.dataset.theme = theme;
+    const btn = $('#theme-toggle');
+    if (btn) btn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+  }
+
+  function initTheme() {
+    const stored = (() => { try { return localStorage.getItem(STORAGE_KEY); } catch { return null; } })();
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(stored || (prefersDark ? 'dark' : 'light'));
+
+    const btn = $('#theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem(STORAGE_KEY, next); } catch { /* ignore quota errors */ }
     });
-}
+  }
 
-/*===== MENU HIDDEN =====*/
-/* Validate if constant exists */
-if (navClose) {
-    navClose.addEventListener('click', () => {
-        navMenu.classList.remove("show-menu"); // Hide the menu on close
+  /* ----------- MOBILE NAV ----------- */
+  function initMobileNav() {
+    const toggle   = $('#nav-toggle');
+    const menu     = $('#nav-menu');
+    const backdrop = $('#nav-backdrop');
+    if (!toggle || !menu || !backdrop) return;
+
+    const open = () => {
+      menu.dataset.open = 'true';
+      backdrop.dataset.open = 'true';
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('no-scroll');
+    };
+    const close = () => {
+      menu.dataset.open = 'false';
+      backdrop.dataset.open = 'false';
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('no-scroll');
+    };
+
+    toggle.addEventListener('click', () => {
+      (menu.dataset.open === 'true' ? close : open)();
     });
-}
+    backdrop.addEventListener('click', close);
+    $$('.nav__menu a').forEach(a => a.addEventListener('click', close));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  }
 
+  /* ----------- CV DOWNLOAD DROPDOWN ----------- */
+  function initCvDropdown() {
+    const wrap   = $('#cv-dropdown');
+    const toggle = $('#cv-toggle');
+    if (!wrap || !toggle) return;
 
-/*==================== REMOVE MENU MOBILE ====================*/
-const navLink = document.querySelectorAll('.nav__link')
+    const close = () => { wrap.dataset.open = 'false'; toggle.setAttribute('aria-expanded', 'false'); };
+    const open  = () => { wrap.dataset.open = 'true';  toggle.setAttribute('aria-expanded', 'true'); };
 
-function linkAction(){
-    const navMenu = document.getElementById('nav-menu')
-    // When we click on each nav__link, we remove the show-menu class
-    navMenu.classList.remove('show-menu')
-}
-navLink.forEach(n => n.addEventListener('click', linkAction))
+    toggle.addEventListener('click', e => {
+      e.stopPropagation();
+      (wrap.dataset.open === 'true' ? close : open)();
+    });
+    document.addEventListener('click', e => {
+      if (!wrap.contains(e.target)) close();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+    $$('.cv-dropdown__item').forEach(a => a.addEventListener('click', close));
+  }
 
-/*==================== ACCORDION SKILLS ====================*/
-const SkillsContent = document.getElementsByClassName('skills__content'),
-    skillsHeader = document.querySelectorAll('.skills__header')
+  /* ----------- HEADER SHADOW ON SCROLL ----------- */
+  function initHeaderScroll() {
+    const header = $('#header');
+    if (!header) return;
+    const sentinel = document.createElement('div');
+    sentinel.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;pointer-events:none;';
+    document.body.prepend(sentinel);
+    const io = new IntersectionObserver(entries => {
+      header.classList.toggle('header--scrolled', !entries[0].isIntersecting);
+    }, { threshold: 0 });
+    io.observe(sentinel);
+  }
 
+  /* ----------- SCROLL-SPY (active nav link via IntersectionObserver) ----------- */
+  function initScrollSpy() {
+    const sections = $$('section[id]');
+    const links = $$('.nav__list a[href^="#"]');
+    if (!sections.length || !links.length) return;
 
-function toggleSkills(){
-    let itemclass =this.parentNode.className
-
-    for (i=0; i< SkillsContent.length; i++){
-        SkillsContent[i].className = 'skills__content skills__close'
+    const linkBySection = new Map();
+    for (const link of links) {
+      const id = link.getAttribute('href').slice(1);
+      if (!linkBySection.has(id)) linkBySection.set(id, []);
+      linkBySection.get(id).push(link);
     }
-    if (itemclass=== 'skills__content skills__close'){
-        this.parentNode.className ='skills__content skills__open'
+
+    let activeId = null;
+    const setActive = (id) => {
+      if (id === activeId) return;
+      activeId = id;
+      links.forEach(l => l.removeAttribute('aria-current'));
+      const matches = linkBySection.get(id);
+      if (matches) matches.forEach(l => l.setAttribute('aria-current', 'true'));
+    };
+
+    const io = new IntersectionObserver(entries => {
+      // Pick the entry most-visible in the viewport.
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      if (visible.length) setActive(visible[0].target.id);
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: [0, 0.25, 0.5, 1] });
+
+    sections.forEach(s => io.observe(s));
+  }
+
+  /* ----------- CAREER TABS ----------- */
+  function initCareerTabs() {
+    const tabs = $$('.career__tab');
+    const panels = $$('.career__panel');
+    if (!tabs.length || !panels.length) return;
+
+    function activate(tab) {
+      tabs.forEach(t => {
+        const on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+      });
+      panels.forEach(p => {
+        const on = p.id === tab.dataset.target;
+        p.dataset.active = on ? 'true' : 'false';
+        if (on) p.removeAttribute('hidden'); else p.setAttribute('hidden', '');
+      });
     }
-}    
 
-skillsHeader.forEach((el) =>{
-    el.addEventListener('click',toggleSkills)
-})
+    tabs.forEach((tab, idx) => {
+      tab.addEventListener('click', () => activate(tab));
+      tab.addEventListener('keydown', e => {
+        let next = null;
+        if (e.key === 'ArrowRight') next = tabs[(idx + 1) % tabs.length];
+        else if (e.key === 'ArrowLeft') next = tabs[(idx - 1 + tabs.length) % tabs.length];
+        else if (e.key === 'Home') next = tabs[0];
+        else if (e.key === 'End') next = tabs[tabs.length - 1];
+        if (next) { e.preventDefault(); activate(next); next.focus(); }
+      });
+    });
+  }
 
-/*==================== QUALIFICATION TABS ====================*/
-const tabs = document.querySelectorAll('[data-target]'),
-    tabContents=document.querySelectorAll('[data-content]')
+  /* ----------- SCROLL-UP BUTTON (visibility via IntersectionObserver) ----------- */
+  function initScrollUp() {
+    const btn = $('#scroll-up');
+    if (!btn) return;
+    const trigger = document.createElement('div');
+    trigger.style.cssText = 'position:absolute;top:80vh;left:0;width:1px;height:1px;pointer-events:none;';
+    document.body.prepend(trigger);
+    const io = new IntersectionObserver(entries => {
+      btn.dataset.visible = (!entries[0].isIntersecting) ? 'true' : 'false';
+    }, { threshold: 0 });
+    io.observe(trigger);
+  }
 
-tabs.forEach(tab =>{
-    tab.addEventListener('click',() =>{
-        const target = document.querySelector(tab.dataset.target)
+  /* ----------- INIT ----------- */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 
-        tabContents.forEach(tabContent =>{
-            tabContent.classList.remove('qualification__active')
-        })
-        target.classList.add('qualification__active')
+  function init() {
+    initTheme();
+    initMobileNav();
+    initCvDropdown();
+    initHeaderScroll();
+    initScrollSpy();
+    initCareerTabs();
+    initScrollUp();
+  }
 
-        tabs.forEach(tab =>{
-            tab.classList.remove('qualification__active')
-        })
-        tab.classList.add('qualification__active')
-    })
-})
-
-/*==================== SERVICES MODAL ====================*/
-
-
-/*==================== PORTFOLIO SWIPER  ====================*/
-let swiper = new Swiper('.mySwiper', {
-    loop: true,
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    slidesPerView: 1,
-    spaceBetween: 30,
-});
-
-/*==================== TESTIMONIAL ====================*/
-
-
-/*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
-
-const sections = document.querySelectorAll('section[id]')
-
-function scrollActive(){
-    const scrollY = window.pageYOffset
-
-    sections.forEach(current =>{
-        const sectionHeight = current.offsetHeight
-        const sectionTop = current.offsetTop - 50;
-        sectionId = current.getAttribute('id')
-
-        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
-        }else{
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
-        }
-    })
-}
-window.addEventListener('scroll', scrollActive)
-/*==================== CHANGE BACKGROUND HEADER ====================*/ 
-function scrollHeader(){
-    const nav = document.getElementById('header')
-    // When the scroll is greater than 200 viewport height, add the scroll-header class to the header tag
-    if(this.scrollY >= 80) nav.classList.add('scroll-header'); else nav.classList.remove('scroll-header')
-}
-window.addEventListener('scroll', scrollHeader)
-
-/*==================== SHOW SCROLL UP ====================*/ 
-function scrollUp(){
-    const scrollUp = document.getElementById('scroll-up');
-    // When the scroll is higher than 560 viewport height, add the show-scroll class to the a tag with the scroll-top class
-    if(this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
-}
-window.addEventListener('scroll', scrollUp)
-
-/*==================== DARK LIGHT THEME ====================*/ 
-const themeButton = document.getElementById('theme-button')
-const darkTheme = 'dark-theme'
-const iconTheme = 'uil-sun'
-
-// Previously selected topic (if user selected)
-const selectedTheme = localStorage.getItem('selected-theme')
-const selectedIcon = localStorage.getItem('selected-icon')
-
-// We obtain the current theme that the interface has by validating the dark-theme class
-const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
-const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'uil-moon' : 'uil-sun'
-
-// We validate if the user previously chose a topic
-if (selectedTheme) {
-  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-  document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
-  themeButton.classList[selectedIcon === 'uil-moon' ? 'add' : 'remove'](iconTheme)
-}
-
-// Activate / deactivate the theme manually with the button
-themeButton.addEventListener('click', () => {
-    // Add or remove the dark / icon theme
-    document.body.classList.toggle(darkTheme)
-    themeButton.classList.toggle(iconTheme)
-    // We save the theme and the current icon that the user chose
-    localStorage.setItem('selected-theme', getCurrentTheme())
-    localStorage.setItem('selected-icon', getCurrentIcon())
-})
+})();

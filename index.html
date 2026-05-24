@@ -1,834 +1,551 @@
-<!-- https://www.youtube.com/watch?v=27JtRAI3QO8 -->
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <!--==================== UNICONS ====================-->
-                <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-        
-                <!--==================== SWIPER CSS ====================-->
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#FAF8F3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0E1620" media="(prefers-color-scheme: dark)">
 
-           
-        <!--==================== CSS ====================-->
-        <link rel="stylesheet" href="assets/css/styles.css">
+  <title>Azzam HANNOUF — Cost Management &amp; EVM for billion-euro industrial programs</title>
+  <meta name="description" content="Senior consultant in Cost Management and EVM. Fifteen years delivering nuclear, energy, water and aerospace programmes — including a billion-euro Advanced Modular Reactor. PMP, MBA Finance.">
+  <meta name="author" content="Azzam HANNOUF">
 
-        <title>Azzam HANNOUF</title>
-    </head>
-    <body>
-        <!--==================== HEADER ====================-->
-        <header class="header" id="header">
-            <nav class="nav container">
-                <a href="#" class="nav__logo">Azzam HANNOUF</a>
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list grid">
-                            <li class="nav__item">
-                                <a href="#home" target="_blank" class="nav__link active-link">
-                                    <i class="uil uil-estate nav__icon"></i> Home
-                                </a>
-                            </li>
-                            <li class="nav__item">
-                                <a href="#about" target="_blank"class="nav__link">
-                                    <i class="uil uil-user nav__icon"></i> About
-                                </a>
-                            </li>
-                            <li class="nav__item">
-                                <a href="#Skills" target="_blank"class="nav__link">
-                                    <i class="uil uil-file-alt nav__icon"></i> Skills
-                                </a>
-                            </li>
-        
-                            <li class="nav__item">
-                                <a href="#Qualification"target="_blank"  class="nav__link">
-                                <i class="uil uil-university nav__icon"></i> Qualification
-                                </a>
-                            </li>
-                            <li class="nav__item">
-                                <a href="#Projects" class="nav__link">
-                                    <i class="uil uil-building nav__icon"></i> Projects
-                                </a>
-                            </li>
-                            <li class="nav__item">
-                                <a href="#Contact" class="nav__link">
-                                    <i class="uil uil-comment-alt-message nav__icon"></i> Contact me
-                                </a>
-                            </li>
+  <link rel="canonical" href="https://azzalgo.github.io/Portfolio/">
 
-                    </ul>
-                    <i class="uil uil-times nav__close" id="nav-close"></i>
-                </div>
-                <div class="nav__btns">
-                    <i class="uil uil-moon change-theme" id="theme-button"></i>
-                    <div class="nav__toggle" id="nav-toggle">
-                        <i class="uil uil-apps"></i>
-                    </div>
-                </div>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://azzalgo.github.io/Portfolio/">
+  <meta property="og:title" content="Azzam HANNOUF — Cost Management &amp; EVM Consultant">
+  <meta property="og:description" content="Cost Management and EVM for billion-euro industrial programmes. PMP. MBA Finance. Fifteen years across nuclear, energy, water and aerospace.">
+  <meta property="og:image" content="https://azzalgo.github.io/Portfolio/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Azzam HANNOUF — Cost Management &amp; EVM Consultant">
+  <meta name="twitter:description" content="Cost Management and EVM for billion-euro industrial programmes. PMP. MBA Finance.">
+  <meta name="twitter:image" content="https://azzalgo.github.io/Portfolio/og-image.png">
 
-            </nav>
-            
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Preload hero display font (latin subset) to improve LCP -->
+  <link rel="preload" href="assets/fonts/fraunces-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Azzam HANNOUF",
+    "givenName": "Azzam",
+    "familyName": "HANNOUF",
+    "jobTitle": "Senior Cost Management Consultant",
+    "description": "Senior consultant in Cost Management and EVM for billion-euro industrial programmes. PMP, MBA Finance, MEng Mechanical Engineering.",
+    "url": "https://azzalgo.github.io/Portfolio/",
+    "image": "https://azzalgo.github.io/Portfolio/og-image.png",
+    "email": "mailto:azzam.hannouf@gmail.com",
+    "knowsLanguage": ["en", "fr", "ar"],
+    "address": { "@type": "PostalAddress", "addressLocality": "Lyon", "addressCountry": "France" },
+    "alumniOf": [
+      { "@type": "EducationalOrganization", "name": "emlyon Business School" },
+      { "@type": "EducationalOrganization", "name": "Université de Technologie de Belfort-Montbéliard (UTBM)" }
+    ],
+    "hasCredential": [
+      { "@type": "EducationalOccupationalCredential", "name": "Project Management Professional (PMP)", "credentialCategory": "certificate", "recognizedBy": { "@type": "Organization", "name": "Project Management Institute" } }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/azzamh/",
+      "https://github.com/AzzAlgo"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============== HEADER ============== -->
+  <header class="header" id="header">
+    <div class="container nav">
+      <a href="#top" class="nav__brand">Azzam HANNOUF</a>
+
+      <nav aria-label="Primary">
+        <ul class="nav__list" id="nav-list">
+          <li><a href="#about" class="nav__link">About</a></li>
+          <li><a href="#expertise" class="nav__link">Expertise</a></li>
+          <li><a href="#engagements" class="nav__link">Engagements</a></li>
+          <li><a href="#career" class="nav__link">Career</a></li>
+          <li><a href="#toolkit" class="nav__link">Toolkit</a></li>
+          <li><a href="#contact" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav__backdrop" id="nav-backdrop"></div>
+    <aside class="nav__menu" id="nav-menu" aria-label="Mobile menu">
+      <ul class="nav__list">
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#expertise" class="nav__link">Expertise</a></li>
+        <li><a href="#engagements" class="nav__link">Engagements</a></li>
+        <li><a href="#career" class="nav__link">Career</a></li>
+        <li><a href="#toolkit" class="nav__link">Toolkit</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+    </aside>
+  </header>
+
+  <main id="main" class="main">
+
+    <!-- ============== HERO ============== -->
+    <section class="section hero" id="top">
+      <div class="container">
+        <div class="hero__inner">
+          <span class="eyebrow">Senior Consultant</span>
+          <h1 class="hero__title">Azzam HANNOUF</h1>
+          <p class="hero__lede">Cost Management &amp; EVM for billion-euro industrial programmes.</p>
+          <p class="hero__sub">Fifteen years across nuclear, energy, water and aerospace. PMP. MBA Finance.</p>
+
+          <dl class="hero__stats">
+            <div>
+              <dt class="hero__stat-num hero__stat-num--accent">&gt; €1 B</dt>
+              <dd class="hero__stat-label">Largest programme scope</dd>
+            </div>
+            <div>
+              <dt class="hero__stat-num">15+ yrs</dt>
+              <dd class="hero__stat-label">Delivery</dd>
+            </div>
+            <div>
+              <dt class="hero__stat-num">4 industries</dt>
+              <dd class="hero__stat-label">Nuclear · energy · water · aerospace</dd>
+            </div>
+          </dl>
+
+          <div class="hero__ctas">
+            <a href="#contact" class="btn btn--primary">
+              Discuss a mission
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <div class="cv-dropdown" id="cv-dropdown">
+              <button class="btn btn--secondary" id="cv-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="cv-menu">
+                Download CV
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <ul class="cv-dropdown__menu" id="cv-menu" role="menu">
+                <li><a class="cv-dropdown__item" role="menuitem" download href="assets/pdf/20250517_E_2P_Hannouf.pdf">English (PDF)</a></li>
+                <li><a class="cv-dropdown__item" role="menuitem" download href="assets/pdf/20250328_F_2P_Hannouf.pdf">Français (PDF)</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== ABOUT ============== -->
+    <section class="section section--alt" id="about">
+      <div class="container">
+        <header class="section__head">
+          <span class="eyebrow">About</span>
+          <h2 class="section__title">A reference on cost management.</h2>
         </header>
 
-        <!--==================== MAIN ====================-->
-        <main class="main">
-
-
-            <!--==================== HOME ====================-->
-            <section class="home section" id="home">
-                <div class="home__container container grid">
-
-                    <div class="home__content grid">
-                        <div class="home__social">
-                            <a href="https://www.linkedin.com/in/azzamh/"  target= "_blank" class="home__social-icon">
-                                <i class="uil uil-linkedin"></i>
-                            </a>
-                            <a href="https://www.instagram.com/azzam_hannouf/"  target= "_blank" class="home__social-icon">
-                                <i class="uil uil-instagram-alt"></i>
-                            </a>
-                            <a href="https://www.facebook.com/azzam.hannouf"  target= "_blank" class="home__social-icon">
-                                <i class="uil uil-facebook"></i>
-                            </a>
-                            <a href="https://github.com/AzzAlgo"  target= "_blank" class="home__social-icon">
-                                <i class="uil uil-github"></i>
-                            </a>
-                        </div>
-                        
-                        <div class="home__img">
-                            <img src="assets/img/Azzam_profile_3.png" alt="">
- 
-                        </div>
-                 
-                        <div class="home__data">
-                            <h1 class="home__title">Azzam HANNOUF</h1>
-                            <h3 class="home__subtitle">Senior Consultant in Project Management</h3>
-                            <p class="home__descirption">Results-oriented with 15+ years of experience delivering high-impact projects across diverse industries.</p>
-                            <a href="#Contact" class="button button--flex">Contact Me 
-                                <i class="uil uil-message button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="home__scroll">
-                        <a href="#about" class="home__scroll-button button--flex"> </a>
-                    </div>
-
-
-                </div>
-                
-
-            </section>
-
-
-
-
-            <!--==================== ABOUT ====================-->
-            <section class="about section" id="about">
-                <h2 class="section__title">About me</h2>
-                <div class="section__subtitle">My introduction</div>
-
-                <div class="about__container container grid">
-                    <img src="assets/img/Azzam_profile.png " alt="" class="about__img">
-                    <div class="about__data">
-                        <p class="about__description">I am a results-oriented Project Manager and Consultant with over 15 years of 
-                            experience delivering high-impact projects across diverse industries. With a strong background 
-                            in Mechanical Engineering, an MBA in Finance, and PMP certification, I bring a unique blend of technical knowledge,
-                             financial acumen, and strategic project management expertise</p>
-                        <div class="about__infos">
-                            <div class="about__info">
-                                <span class="about__info-title">15+</span>
-                                <span class="about__info-name">  Years</span>
-                            </div>
-                            <div class="about__info">
-                                <span class="about__info-title">10+</span>
-                                <span class="about__info-name"> Projects</span>
-                            </div>
-                            <div class="about__info">
-                                <span class="about__info-title">4+ </span>
-                                <span class="about__info-name">Industry</span>
-                            </div>
-                        </div>
-                        <!-- Move the download buttons here -->
-                        <div class="about__buttons">
-                            <a download="" href="assets/pdf/20250517_E_2P_Hannouf.pdf" class="button button--flex">Download CV 
-                                <i class="uil uil-download-alt button__icon"></i> 
-                            </a>
-                            <div class="button__content">
-                                <a download="" href="assets/pdf/20250328_F_2P_Hannouf.pdf" class="button__list">French</a>
-                                <a download="" href="assets/pdf/20250517_E_2P_Hannouf.pdf" class="button__list">English</a> 
-                            </div>
-                        </div>
-                    </div>
-
-            </section>
-
-            <!--==================== SKILLS ====================-->
-            <section class="skills section" id="Skills">
-              
-                <h2 class="section__title">Skills</h2>
-                <span class="section__subtitle">My technical level</span>
-                <div class="skills_container container grid">
-                    <!--==================== SKILLS 0 ====================-->
-                    <div class="skills__content skills__open">
-                        <div class="skills__header">
-                            <i class="uil uil-english-to-chinese skills__icon"></i>
-                            <div>
-                                <h1 class="skills__title">Languages</h1>
-                            </div>
-                            <i class="uil uil-angle-down skills__arrow"></i>
-                        </div>
-
-                            <div class="skills__list grid">
-                                <div class="div skills__data">
-                                    <div class="div skills__titles">
-                                        <h3 class="skills__name">Arabic</h3>
-                                        <span class="Skills__number">100%</span>
-                                    </div>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__Arabic"></span>
-                                </div>
-                                <div class="div skills__data">
-                                    <div class="div skills__titles">
-                                        <h3 class="skills__name">French</h3>
-                                        <span class="Skills__number">90%</span>
-                                    </div>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__90"></span>
-                                </div>
-                                <div class="div skills__data">
-                                    <div class="div skills__titles">
-                                        <h3 class="skills__name">English</h3>
-                                        <span class="Skills__number">90%</span>
-                                    </div>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__90"></span>
-                                </div>
-                            </div>   
-                    </div>       
-                    <!--==================== SKILLS 1 ====================-->
-                    <div class="skills__content skills__open">
-                        <div class="skills__header">
-                            <i class="uil uil-chart-line skills__icon"></i>
-                            <div>
-                                <h1 class="skills__title">Project Management</h1>
-                                <span class="skills__subtitle"> More than 14 years</span>
-                            </div>
-                            <i class="uil uil-angle-down skills__arrow"></i>
-                        </div>
-
-                            <div class="skills__list grid">
-                                <div class="div skills__data">
-                                    <div class="div skills__titles">
-                                        <h3 class="skills__name">Primavera </h3>
-                                        <span class="Skills__number">90%</span>
-                                    </div>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__90"></span>
-                                </div>
-                                <div class="div skills__data">
-                                    <div class="div skills__titles">
-                                        <h3 class="skills__name">Ms Project</h3>
-                                        <span class="Skills__number">80%</span>
-                                    </div>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__80"></span>
-                                </div>
-                                <div class="div skills__data">
-                                    <div class="div skills__titles">
-                                        <h3 class="skills__name">Trello/Jira</h3>
-                                        <span class="Skills__number">80%</span>
-                                    </div>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__80"></span>
-                                </div>
-                            </div>   
-                    </div>                               
-                    <!--==================== SKILLS 1 ====================-->
-                    <div class="skills__content skills__close">
-                        <div class="skills__header">
-                            <i class="uil uil-database skills__icon"></i>
-                            <div>
-                                <h1 class="skills__title">Data & Programming </h1>
-                                <span class="skills__subtitle"> More than 18 years</span>
-                            </div>
-                            <i class="uil uil-angle-down skills__arrow"></i>
-                        </div>
-                            <div class="skills__list grid">
-                                <div class="div skills__data">
-                                    <div class="div skills__titles">
-                                        <h3 class="skills__name">Fortran</h3>
-                                        <span class="Skills__number">70%</span>
-                                    </div>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__70"></span>
-                                </div>
-                                <div class="div skills__data">
-                                    <div class="div skills__titles">
-                                        <h3 class="skills__name">C/C++</h3>
-                                        <span class="Skills__number">90%</span>
-                                    </div>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__90"></span>
-                                </div>
-                                <div class="div skills__data">
-                                    <div class="div skills__titles">
-                                        <h3 class="skills__name">Python</h3>
-                                        <span class="Skills__number">90%</span>
-                                    </div>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__90"></span>
-                                </div>
-                                <div class="div skills__data">
-                                    <div class="div skills__titles">
-                                        <h3 class="skills__name">Html</h3>
-                                        <span class="Skills__number">50%</span>
-                                    </div>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__50"></span>
-                                </div>
-                                <div class="div skills__data">
-                                    <div class="div skills__titles">
-                                        <h3 class="skills__name">CSS</h3>
-                                        <span class="Skills__number">50%</span>
-                                    </div>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__50"></span>
-                                </div>
-                                <div class="div skills__data">
-                                    <div class="div skills__titles">
-                                        <h3 class="skills__name">PowerBi</h3>
-                                        <span class="Skills__number">80%</span>
-                                    </div>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__80"></span>
-                                </div>
-                                <div class="div skills__data">
-                                    <div class="div skills__titles">
-                                        <h3 class="skills__name">Power Query</h3>
-                                        <span class="Skills__number">80%</span>
-                                    </div>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__80"></span>
-                                </div>                                                          
-                            </div>
-                    </div>  
-
-                    <!--==================== SKILLS 2 ====================-->
-                    <div class="skills__content skills__close">
-                        <div class="skills__header">
-                            <i class="uil uil-desktop skills__icon"></i>
-                            <div>
-                                <h1 class="skills__title">Enginnering </h1>
-                                <span class="skills__subtitle"> More than 15 years</span>
-                            </div>
-                            <i class="uil uil-angle-down skills__arrow"></i>
-                        </div>
-                            <div class="skills__list grid">
-                                <div class="div skills__data">
-                                    <div class="div skills__titles">
-                                        <h3 class="skills__name">Autocad</h3>
-                                        <span class="Skills__number">90%</span>
-                                    </div>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__90"></span>
-                                </div>
-                                <div class="div skills__data">
-                                    <div class="div skills__titles">
-                                        <h3 class="skills__name">Autocad PID & PLANT 3D</h3>
-                                        <span class="Skills__number">90%</span>
-                                    </div>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__90"></span>
-                                </div>
-                                <div class="div skills__data">
-                                    <div class="div skills__titles">
-                                        <h3 class="skills__name">Catia</h3>
-                                        <span class="Skills__number">50%</span>
-                                    </div>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__50"></span>
-                                </div>
-                                <div class="div skills__data">
-                                    <div class="div skills__titles">
-                                        <h3 class="skills__name">ANsys</h3>
-                                        <span class="Skills__number">50%</span>
-                                    </div>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__50"></span>
-                                </div>  
-                                <div class="div skills__data">
-                                    <div class="div skills__titles">
-                                        <h3 class="skills__name">Biowin</h3>
-                                        <span class="Skills__number">70%</span>
-                                    </div>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__70"></span>
-                                </div>                                                              
-                            </div>
-                    </div>  
-                       
-                    </div>
-                </div>
+        <div class="about__grid">
+          <div class="about__portrait">
+            <img src="assets/img/Azzam_profile.png" alt="Portrait of Azzam HANNOUF, senior cost management consultant" width="560" height="560" loading="lazy" decoding="async">
+          </div>
+          <div>
+            <div class="about__bio">
+              <p>I lead cost management on complex industrial programmes. Most recently, as PMO Cost Manager on a billion-euro Advanced Modular Reactor programme, I authored the Cost Management and Cost Estimate Plans, ran variance and EVM analysis against the WBS, and structured executive reporting at programme management level.</p>
+              <p>My background blends mechanical engineering (UTBM), an MBA in Finance from emlyon, and a PMP certification valid through 2027. That triangulation lets me operate at the intersection of engineering, finance and programme governance — the seat where senior cost decisions actually get made.</p>
+              <p>I work in English and French across France, the GCC and Northern Europe.</p>
             </div>
-            </section>
-
-            <!--==================== Qualification ====================-->
-            <section class="qualification section" id="Qualification">
-                <h2 class="section__title" >Qualification</h2>
-                <div class="section__subtitle">My Journey</div>
-
-                <div class="qualification__container container">
-                    <div class="qualification__tabs">
-                        <div class="qualification__buttons buttons--flex qualification__active" data-target="#Education">
-                            <i class="uil uil-graduation-cap qualification__icon"></i>
-                            Education
-                        </div>
-                        <div class="qualification__buttons buttons--flex data-target" data-target="#Experience">
-                            <i class="uil uil-bag qualification__icon"></i>
-                            Experience
-                        </div>
-                        <div class="qualification__buttons buttons--flex data-target" data-target="#Certification">
-                            <i class="uil uil-award qualification__icon"></i>
-                            Certification
-                        </div>
-                    </div>
-            <!--==================== Qualification sections ====================-->
-                    <div class="qualification__section">
-                    
-                    <!--==================== Qualification content 1 ====================-->
-                     <div class="qualification__content qualification__active" data-content id="Education">
-
-                         <!--==================== Qualification 2 ====================-->
-                        <div class="qualification__data">
-                                <div></div>
-                                <div>
-                                    <span class="qualification__rounder"></span>
-                                    <span class="qualification__line"></span>
-                                </div>
-                                <div>
-                                    <h3 class="qualification__title">MBA</h3>
-                                    <span class="qualification__subtitle">Emlyon Business School</span>
-                                    <div class="qualification__calender">
-                                        <i class="uil uil-schedule"></i>
-                                        2017 - 2018
-                                    </div>
-                                </div>
-                        </div>
-                         <!--==================== Qualification 3 ====================-->
-                        <div class="qualification__data">
-                                <div>
-                                    <h3 class="qualification__title">Master’s degree in mechanical engineering </h3>
-                                    <span class="qualification__subtitle">University of technology of Belfort-Montbéliard</span>
-                                    <div class="qualification__calender">
-                                        <i class="uil uil-schedule"></i>
-                                        2005 - 2008
-                                    </div>
-                                </div>
-                                <div>
-                                    <span class="qualification__rounder"></span>
-                                    <span class="qualification__line"></span>
-                                </div>
-                        </div>
-                         <!--==================== Qualification 4 ====================-->
-                         <div class="qualification__data">
-                            <div></div>
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <!-- <span class="qualification__line"></span> -->
-                            </div>
-                                <div>
-                                    <h3 class="qualification__title">Bachelor’s degree in industrial engineering</h3>
-                                    <span class="qualification__subtitle">Faculty of Technology - Lebanese University</span>
-                                    <div class="qualification__calender">
-                                        <i class="uil uil-schedule"></i>
-                                        2002 - 2005
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                    <!--==================== Qualification content 2 ====================-->
-                    <div class="qualification__content " data-content id="Experience">
-                <!--==================== Qualification 1 ====================-->
-                <div class="qualification__data">
-                    <div>
-                        <h3 class="qualification__title"> Project Manager Consultant</h3>
-                        <span class="qualification__subtitle">Piman Group</span>
-                        <div class="qualification__calender">
-                            <i class="uil uil-schedule"></i>
-                            2018 - Present
-                        </div>
-                    </div>
-                    <div>
-                        <span class="qualification__rounder"></span>
-                        <span class="qualification__line"></span>
-                    </div>
-                </div>
-                <!--==================== Qualification 2 ====================-->
-                <div class="qualification__data">
-                        <div></div>
-                         <div>
-                            <span class="qualification__rounder"></span>
-                            <span class="qualification__line"></span>
-                        </div>
-                        <div>
-                            <h3 class="qualification__title">Team Leader</h3>
-                            <span class="qualification__subtitle">Suido Kiko Middle East</span>
-                            <div class="qualification__calender">
-                                <i class="uil uil-schedule"></i>
-                                2014 - 2017
-                            </div>
-                        </div>
-                    </div>
-   
-                    
-                 <!--==================== Qualification 3 ====================-->
-                            <div class="qualification__data">
-                                <div>
-                                    <h3 class="qualification__title">Mechanical Enginner</h3>
-                                    <span class="qualification__subtitle">Suido Kiko Middle East</span>
-                                    <div class="qualification__calender">
-                                        <i class="uil uil-schedule"></i>
-                                        2009 - 2014
-                                    </div>
-                                </div>
-                                <div>
-                                    <span class="qualification__rounder"></span>
-                                    <span class="qualification__line"></span>
-                                </div>
-                            </div>
-                 <!--==================== Qualification 4 ====================-->
-                            <div class="qualification__data">
-                                <div></div>
-                                <div>
-                                    <span class="qualification__rounder"></span>
-                                    <span class="qualification__line"></span>
-                                </div>
-                                <div>
-                                    <h3 class="qualification__title">Internship Mechatronic Enginner</h3>
-                                    <span class="qualification__subtitle">Tenneco</span>
-                                    <div class="qualification__calender">
-                                        <i class="uil uil-schedule"></i>
-                                        2008 - 2008
-                                    </div>
-                                </div>
-                            </div>
-                 <!--==================== Qualification 5 ====================-->
-                            <div class="qualification__data">
-                                <div>
-                                    <h3 class="qualification__title">Internship Mechanical Enginner</h3>
-                                    <span class="qualification__subtitle">Liebherr France</span>
-                                    <div class="qualification__calender">
-                                        <i class="uil uil-schedule"></i>
-                                        2006 - 2007
-                                    </div>
-                                </div>
-                                <div>
-                                    <span class="qualification__rounder"></span>
-                                    <!-- <span class="qualification__line"></span> -->
-                                </div>
-                            </div>
-                        
-                    </div>  
-                    <!--==================== Qualification content 3 ====================-->
-                    <div class="qualification__content " data-content id="Certification">
-                                <!--==================== Qualification 1 ====================-->
-                                <div class="qualification__data">
-                                    <div></div>
-                                    <div>
-                                        <span class="qualification__rounder"></span>
-                                        <span class="qualification__line"></span>
-                                    </div>
-                                <div>
-                                    <h3 class="qualification__title">Project Management Professional (PMP)</h3>
-                                    <span class="qualification__subtitle">Project Management Institute</span>
-                                    <div class="qualification__calender">
-                                        <i class="uil uil-schedule"></i>
-                                        2021 - valid 2027
-                                    </div>
-                                </div>
-                 
-                            </div>
-                             <!--==================== Qualification 4 ====================-->
-                        <!--==================== Qualification 3 ====================-->
-                        <div class="qualification__data">
-                            <div>
-                                <h3 class="qualification__title">Business the Nordic way </h3>
-                                <span class="qualification__subtitle">OULU BUSINESS SCHOOL  </span>
-                                <div class="qualification__calender">
-                                    <i class="uil uil-schedule"></i>
-                                    2018
-                                </div>
-                            </div>
-                            <div>
-                                <span class="qualification__rounder"></span>
-                           
-                            </div>
-                    </div>
-                      
-                    
-                            
-                    </div>  
-                        
-                </div> 
-                </div>
-            </section>
-    
-            
-
-
-
-
-            <!--==================== Projects ====================-->
-            <section class="projects section" id="Projects">
-                <h2 class="section__title">Projects</h2>
-                <span class="section__subtitle">Working projects</span>
-                <div class="container">
-                    <div class="project__container mySwiper">
-                        <div class="swiper-wrapper">
-
-                            <!--==================== Project 1 ====================-->
-                            <div class="project__content grid swiper-slide">
-                                <img src="assets/img/Project 1.webp" alt="" class="project__img">
-                                <div class="project__data">
-                                    <h3 class="project__title">Position :PMO-Cost Management 
-                                        <br> Budget: >1 B€ 
-                                        <br> Project : Small Modular Reactor  </h3>
-                                    <p class="project__description">Key Member of the PMO Team Specializing in Cost Management: 
-                                        <li>Development and implementation of cost control processes and standards (Cost Estimate Plan and Cost Management Plan).</li>
-                                        <li>Collaboration with project managers, financial officers, and stakeholders to establish accurate and realistic project budgets.</li>
-                                        <li>Supervision of resource and cost allocation according to the Work Breakdown Structure (WBS).</li>
-                                        <li>Analysis of variances and recommendation of corrective actions.</li>
-                                        <li>Updating of budget forecasts and the risk register.</li>
-                                        <li>Production of regular financial status reports.</li>
-                                    
-                                    <br>
-                                    <br>
-                                    </p>
-                                </div>
-                            </div> 
-                            <!--==================== Project 2 ====================-->
-                            <div class="project__content grid swiper-slide">
-                                <img src="assets/img/Project 2.jpg" alt="" class="project__img">
-                                <div class="project__data">
-                                    <h3 class="project__title">Position :Project Manager
-                                        <br> Budget: 110 M€ 
-                                        <br> Project : New build nuclear reactor</h3>
-                                    <p class="project__description">Low voltage switchboard manufacturing. 
-                                        <li> Oversee the overall project management, from initial planning to final 
-                                            delivery.</li>  
-                                        <li>Lead an international team of project managers and engineers. </li>
-                                        <li>Establish effective communication channels with all project stakeholders, 
-                                            promoting transparency and collaboration. </li>
-                                        <li>Proactively identify, assess, and manage project risks, minimizing potential 
-                                            impacts on schedule and budget. </li> 
-                                        <li>Agile management of changes, with regular progress report preparation. </li> 
-                                        <li>Introduction of agile meeting tools, such as "stand-up meetings".</li> 
-                                        <li>Set up a dedicated "war room" space for intensive project tracking.</li>  <br><br></p>
-                                </div>
-                            </div> 
-                            <!--==================== Project 3 ====================-->
-                            <div class="project__content grid swiper-slide">
-                                <img src="assets/img/Project 3.jpg" alt="" class="project__img">
-                                <div class="project__data">
-                                    <h3 class="project__title">Position :Investment project manager 
-                                        <br> Budget: 20 M€ 
-                                        <br> Project : CAPEX projects in a forging factory </h3>
-                                    <p class="project__description">Project Manager in charge of CAPEX projects in a forging factory.  
-                                        <li>Identify and/or verify investment ideas.</li>
-                                        <li>Evaluate and select ideas based on predefined criteria set by the executive committee.</li>
-                                        <li>Conduct detailed feasibility studies.</li>
-                                        <li>Develop investment plans and analyze associated risks.</li>
-                                        <li>Present investment plans to the executive committee.</li>
-                                        <li>Manage projects after committee approval, from project charter creation to project handover.</li>
-                                        <li>Generate progress reports on investments.</li>>  <br><br></p>
-                                </div>
-                            </div> 
-                            <!--==================== Project 4 ====================-->
-                            <div class="project__content grid swiper-slide">
-                                <img src="assets/img/Project 4.jpg" alt="" class="project__img">
-                                <div class="project__data">
-                                    <h3 class="project__title">Position :Projet Engineer
-                                        <br> Budget: 8 M€  <br>
-                                        Project: Multiple</h3>
-                                    <p class="project__description">Led engineering for onshore and offshore compressor systems across projects in 
-                                        UAE, Uzbekistan, and Russia. 
-                                        <li>Developed work plans and design milestones.</li>
-                                        <li>Conducted technical studies and engineering reviews.</li>
-                                        <li>Ensured contractual and technical compliance of engineering deliverables.</li>
-                                        <li>Clarified grey areas with clients and managed communication with stakeholders.</li>
-                                        <li>Coordinated multidisciplinary teams and supervised deliverables.</li>
-                                        <li>Managed engineering budgets and progress reports.</li>  <br><br></p>
-                                </div>
-                            </div> 
-                            <!--==================== Project 5 ====================-->
-                            <div class="project__content grid swiper-slide">
-                                <img src="assets/img/Project 5.jpg" alt="" class="project__img">
-                                <div class="project__data">
-                                    <h3 class="project__title">Position :Team Leader 
-                                        <br> Budget: 20 M€  <br>
-                                              Project: Multiple</h3>
-                                    <p class="project__description">Responsible for the design of EPC projects utilizing membrane bioreactor (MBR) 
-                                        filtration systems in the water treatment sector, with a budget reaching 20M€ 
-                                        and a capacity of 25000 m³/day, using MBR technologies from KUBOTA and GE. 
-                                        <li>Produced design progress reports.</li>
-                                        <li>Defined the project engineering deliverable list and established the engineering schedule.</li>
-                                        <li>Managed a multidisciplinary team of 5 engineers and draftsmen to develop design deliverables.</li>
-                                        <li>Monitored and controlled design packages, including all deliverables for construction, procurement, and operation.</li>
-                                        <li>Verified and validated design deliverables generated by the teams.</li>
-                                        <li>Researched and implemented new engineering tools, including Biowin, AutoCAD P&ID, and Plant 3D.</li>  <br><br></p>
-                                </div>
-                            </div> 
-
-
-                        </div>
-
-                        
-                        <!-- Navigation Arrows and Pagination -->
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
-            </section> 
-
-      
-            <!--==================== CONTACT ME ====================-->
-            <section class="contact section" id="Contact">
-                <h2 class="section__title">Contact Me</h2>
-                <span class="section__subtitle">Get in Touch</span>
-
-                <div class="contact__container container grid">
-
-                    <div>
-                        <div class="contact__information">
-                            <i class="uil uil-phone contact__icon"></i>
-                            <div>
-                                <h3 class="contact__title"> Call me</h3>
-                                <span class="contact__subtitle">0033 6 60 54 76 69</span>
-
-                            </div>
-                        </div>
-                        <div class="contact__information">
-                            <i class="uil uil-envelope contact__icon"></i>
-                            <div>
-                                <h3 class="contact__title">Email</h3>
-                                <span class="contact__subtitle">azzam.hannouf@gmail.com</span>
-
-                            </div>
-                        </div>
-                        <div class="contact__information">
-                            <i class="uil uil-map contact__icon"></i>
-                            <div>
-                                <h3 class="contact__title">Location</h3>
-                                <span class="contact__subtitle">France-Lyon</span>
-
-                            </div>
-                        </div>
-
-
-                        <form action="https://formsubmit.co/azzam.hannouf@gmail.com" method="POST" class="contact__form grid" >
-                            <input type="hidden" name="_captcha" value="false">
-                            <div class="contact__inputs grid">
-                                <div class="contact__content">
-                                    <label for="" class="contact__label">Name</label>
-                                    <input type="text" name="name" class="contact__input">
-                                </div>
-                                <div class="contact__content">
-                                    <label for="" class="contact__label">Email</label>
-                                    <input type="email"  name="email" placeholer="Email Adress" class="contact__input">
-                                </div>
-                            </div>
-                            <div class="contact__content">
-                                <label for="" class="contact__label">Subject</label>
-                                <input type="text" name="subject" class="contact__input">
-                            </div>
-                            <div class="contact__content">
-                                <label for="" class="contact__label">Message</label>
-                                <textarea   name="message" placeholer="Message" id="" cols="0" rows="7" class="contact__input"></textarea>
-                            </div>
-                            <div>
-                                <button type="submit"  class="button button--flex">
-                                Send Message  
-                                <i class="uil uil-message button__icon"></i>
-                                </button>
-                            </div>
-
-
-                        </form>
-
-
-                    </div>
-
-
-
-                </div>
-
-            </section>
-        </main>
-
-        <!--==================== FOOTER ====================-->
-        <footer class="footer">
-            <div class="footer__bg">
-                <div class="footer__container container grid">
-                    <h1 class="footer__title">Azzam</h1>
-                    <span class="footer__subtitle">Project Manager Consultant</span>
-                    <ul class="footer__links">
-                        <li>
-                            <a href="#Skills" class="footer__link">Skills</a>
-                        </li>
-                        <li>
-                            <a href="#Qualification" class="footer__link">Qualification</a>
-                        </li>
-                        <li>
-                            <a href="#Contact" class="footer__link">Contact me</a>
-                        </li>
-                    </ul>
-                    
-                    <div class="footer__socials">
-                        <a href="https://www.linkedin.com/in/azzamh/"  target= "_blank" class="footer__social">
-                            <i class="uil uil-linkedin"></i>
-                        </a>
-                        <a href="https://www.instagram.com/azzam_hannouf/"  target= "_blank" class="footer__social">
-                            <i class="uil uil-instagram-alt"></i>
-                        </a>
-                        <a href="https://www.facebook.com/azzam.hannouf"  target= "_blank" class="footer__social">
-                            <i class="uil uil-facebook"></i>
-                        </a>
-                        <a href="https://github.com/AzzAlgo"  target= "_blank" class="footer__social">
-                            <i class="uil uil-github"></i>
-                        </a>
-                        </a>
-                   </div>
-                </div>
-                <p class="footer__copy">@Azzam HANNOUF All right reserved</p>
+            <div class="about__chips" aria-label="Credentials">
+              <span class="chip chip--accent">PMP — valid through 2027</span>
+              <span class="chip chip--accent">MBA Finance — emlyon</span>
+              <span class="chip chip--accent">MEng Mechanical — UTBM</span>
             </div>
-         
-        </footer>
- 
-        <!--==================== SCROLL TOP ====================-->
-         <a href="#" class="scrollup" id="scroll-up">
-            <i class="uil uil-arrow-circle-up scrollup__icon"></i>
-         </a>
-        <!--==================== swiper====================-->
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <!--==================== MAIN JS ====================-->
-        <script src="assets/js/main.js"></script>
-    </body>
+            <div class="about__chips" aria-label="Languages">
+              <span class="chip">English</span>
+              <span class="chip">Français</span>
+              <span class="chip">العربية</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== EXPERTISE ============== -->
+    <section class="section" id="expertise">
+      <div class="container">
+        <header class="section__head">
+          <span class="eyebrow">Expertise</span>
+          <h2 class="section__title">What I bring to a programme.</h2>
+          <p class="section__lead">Four practice areas. Aligned with PMI and AACE standards. Operated on multi-hundred-million-euro programmes from baseline to closeout.</p>
+        </header>
+
+        <div class="pillars">
+          <article class="pillar">
+            <span class="pillar__num">01</span>
+            <h3 class="pillar__title">Cost Management &amp; EVM</h3>
+            <p class="pillar__body">Cost Estimate Plans, Cost Management Plans, EVM (CPI, SPI, EAC, ETC, TCPI), Earned Schedule, baseline control. AACE-aligned practice in addition to PMI standards.</p>
+          </article>
+          <article class="pillar">
+            <span class="pillar__num">02</span>
+            <h3 class="pillar__title">PMO Setup &amp; Governance</h3>
+            <p class="pillar__body">PMO structure, cost and risk processes, KPI design, executive reporting, lessons-learned systems. Designed and ran from greenfield to operating cadence.</p>
+          </article>
+          <article class="pillar">
+            <span class="pillar__num">03</span>
+            <h3 class="pillar__title">Risk &amp; Contingency</h3>
+            <p class="pillar__body">Quantitative risk analysis with @RISK, Monte Carlo modelling, AACE-aligned contingency setting. Risk registers, response plans and stakeholder workshops.</p>
+          </article>
+          <article class="pillar">
+            <span class="pillar__num">04</span>
+            <h3 class="pillar__title">Contract &amp; Claim Management</h3>
+            <p class="pillar__body">Claim quantification, schedule and chronology analysis, variance investigation, structured <em>mémoire technique</em> for disputes. End-to-end claim defence on industrial and construction contracts.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== SELECTED ENGAGEMENTS ============== -->
+    <section class="section section--alt" id="engagements">
+      <div class="container">
+        <header class="section__head">
+          <span class="eyebrow">Selected engagements</span>
+          <h2 class="section__title">Recent delivery.</h2>
+          <p class="section__lead">Three flagship missions. Sector descriptors and outcomes are accurate; client and project names are withheld where consulting NDA applies.</p>
+        </header>
+
+        <div class="engagements">
+          <article class="engagement">
+            <div class="engagement__tags">
+              <span class="engagement__tag">Nuclear</span>
+              <span class="engagement__tag">Generation-IV</span>
+            </div>
+            <h3 class="engagement__role">PMO — Cost Manager (then Risk Manager)</h3>
+            <p class="engagement__meta"><strong>&gt; €1 B</strong> · 12 months · France · 2024–2025</p>
+            <p class="engagement__body">Cost management on the lead programme of an innovator in Generation-IV Advanced Modular Reactors — lead-cooled, fuelled by reprocessed nuclear waste. Authored the Cost Management and Cost Estimate Plans, structured cost and resource allocation against the WBS, and ran EVM-based variance analysis. In the final phase, took over the risk discipline — deployed the risk-management process, maintained the Risk Register and Response Plans, and produced Risk Reports aligned with cost and schedule.</p>
+            <p class="engagement__outcome">Structured cost piloting on a &gt; €1 B programme. Materially improved financial visibility and the quality of strategic decision-making at programme management level.</p>
+          </article>
+
+          <article class="engagement">
+            <div class="engagement__tags">
+              <span class="engagement__tag">Nuclear</span>
+              <span class="engagement__tag">EPR</span>
+              <span class="engagement__tag">Generation-III</span>
+            </div>
+            <h3 class="engagement__role">Senior Project Manager</h3>
+            <p class="engagement__meta"><strong>~€110 M</strong> · 13 months · France → United Kingdom · 2022–2023</p>
+            <p class="engagement__body">End-to-end project management on the low-voltage switchboard package for a Generation-III nuclear power plant under construction in the United Kingdom. Led an international team of project managers and engineers. Coordinated production, ran continuous risk analysis, set up agile rituals — daily stand-ups, a dedicated war room — and cleared change orders with contractual impact analysis.</p>
+            <p class="engagement__outcome">First 18 switchboard panels delivered on site on time, unlocking downstream installation without delay. Lessons-learned capitalised and disseminated as standard practice.</p>
+          </article>
+
+          <article class="engagement">
+            <div class="engagement__tags">
+              <span class="engagement__tag">Nuclear</span>
+              <span class="engagement__tag">Defence</span>
+              <span class="engagement__tag">Current</span>
+            </div>
+            <h3 class="engagement__role">UK Program Manager</h3>
+            <p class="engagement__meta"><strong>multi-project portfolio</strong> · 12 months (current) · France → United Kingdom · 2025–present</p>
+            <p class="engagement__body">Supervision of an international engineering plateau at a manufacturer of valves for nuclear, defence, energy and low-carbon solutions. The plateau covers around ten UK-bound projects across two flagship Generation-III nuclear programmes. Supervise four project managers; enforce internal and contractual processes; drive planning, KPI tracking and inter-discipline interfaces.</p>
+            <p class="engagement__outcome">Improved planning reliability through KPI tracking on activity duration estimates. Minimised slippage on critical milestones via structured contingency on grey-area handovers.</p>
+          </article>
+        </div>
+
+        <p class="engagements__disclosure">Most recent engagements are delivered under a consulting framework agreement and described under non-disclosure. Client names and project names are withheld; role, sector, budget range, duration and outcomes are accurate.</p>
+      </div>
+    </section>
+
+    <!-- ============== CAREER ============== -->
+    <section class="section" id="career">
+      <div class="container">
+        <header class="section__head">
+          <span class="eyebrow">Career</span>
+          <h2 class="section__title">Fifteen years of delivery.</h2>
+          <p class="section__lead">Nuclear · oil &amp; gas · water · consumer goods · aerospace · construction. PMP-certified and AACE-aligned.</p>
+        </header>
+
+        <div class="career">
+          <div class="career__tabs" role="tablist" aria-label="Career sections">
+            <button class="career__tab" role="tab" id="tab-experience" aria-controls="panel-experience" aria-selected="true" tabindex="0" data-target="panel-experience">Experience</button>
+            <button class="career__tab" role="tab" id="tab-education"  aria-controls="panel-education"  aria-selected="false" tabindex="-1" data-target="panel-education">Education</button>
+            <button class="career__tab" role="tab" id="tab-certs"      aria-controls="panel-certs"      aria-selected="false" tabindex="-1" data-target="panel-certs">Certifications</button>
+          </div>
+
+          <div class="career__panel" id="panel-experience" role="tabpanel" aria-labelledby="tab-experience" data-active="true">
+            <ol class="timeline">
+
+              <li class="timeline__item">
+                <div class="timeline__head">
+                  <h3 class="timeline__title">Senior Consultant in Cost &amp; Project Management</h3>
+                  <span class="timeline__date">2018 — present</span>
+                </div>
+                <p class="timeline__org"><strong>PIMAN Group</strong> · Lyon, France</p>
+                <p class="timeline__desc">Nine missions delivered across nuclear, oil &amp; gas, water, aerospace, consumer goods and construction. Most-recent first.</p>
+                <ul class="timeline__missions">
+                  <li class="timeline__mission"><strong>UK Program Manager</strong> — international nuclear &amp; defence valves plateau · 12 months · 2025–present</li>
+                  <li class="timeline__mission"><strong>PMO Cost Manager (then Risk Manager)</strong> — &gt; €1 B Advanced Modular Reactor programme · 12 months · 2024–2025</li>
+                  <li class="timeline__mission"><strong>Contract Manager</strong> — Paris high-rise development claim preparation · 4 months · 2025</li>
+                  <li class="timeline__mission"><strong>Project Manager — Product Development</strong> — mass-market consumer product launch · 6 months · 2024</li>
+                  <li class="timeline__mission"><strong>Acceleration Manager</strong> — aircraft final assembly · 3 months · 2023–2024</li>
+                  <li class="timeline__mission"><strong>Senior Project Manager</strong> — Gen-III nuclear LV switchboards · 13 months · 2022–2023</li>
+                  <li class="timeline__mission"><strong>Project Engineer</strong> — offshore &amp; onshore LNG compressors across UAE, Uzbekistan, Russia · 18 months · 2021–2023</li>
+                  <li class="timeline__mission"><strong>Project Supply Manager</strong> — Gen-III nuclear critical supplier portfolio · 12 months · 2020–2021</li>
+                  <li class="timeline__mission"><strong>Investment Project Manager</strong> — ~€20 M CAPEX forging facility portfolio · 24 months · 2018–2020</li>
+                </ul>
+              </li>
+
+              <li class="timeline__item">
+                <div class="timeline__head">
+                  <h3 class="timeline__title">Team Leader, Engineering</h3>
+                  <span class="timeline__date">2013 — 2017</span>
+                </div>
+                <p class="timeline__org"><strong>Suido Kiko Middle East</strong> · Jeddah, Saudi Arabia</p>
+                <p class="timeline__desc">Engineering lead on three Membrane Bioreactor (MBR) water-treatment EPC plants — KUBOTA and GE MBR technologies. Up to €20 M per project. Multidisciplinary engineering team. Deployed Biowin, AutoCAD P&amp;ID and Plant 3D to lift study quality and productivity.</p>
+              </li>
+
+              <li class="timeline__item">
+                <div class="timeline__head">
+                  <h3 class="timeline__title">Project Engineer</h3>
+                  <span class="timeline__date">2009 — 2013</span>
+                </div>
+                <p class="timeline__org"><strong>Suido Kiko Middle East</strong> · Jeddah, Saudi Arabia</p>
+                <p class="timeline__desc">Construction-division support to the Project Manager on six industrial wastewater treatment stations for the National Water Company. Primavera P6 scheduling and progress reporting. Supervised mechanical and process installation and commissioning. Punch-list closure and as-built documentation through final acceptance.</p>
+              </li>
+
+              <li class="timeline__item">
+                <div class="timeline__head">
+                  <h3 class="timeline__title">Mechatronics Engineer Internship</h3>
+                  <span class="timeline__date">2008</span>
+                </div>
+                <p class="timeline__org"><strong>Tenneco</strong></p>
+              </li>
+
+              <li class="timeline__item">
+                <div class="timeline__head">
+                  <h3 class="timeline__title">Mechanical Engineer Internship</h3>
+                  <span class="timeline__date">2006 — 2007</span>
+                </div>
+                <p class="timeline__org"><strong>Liebherr France</strong></p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="career__panel" id="panel-education" role="tabpanel" aria-labelledby="tab-education" hidden>
+            <ol class="timeline">
+              <li class="timeline__item">
+                <div class="timeline__head">
+                  <h3 class="timeline__title">MBA, Finance specialization</h3>
+                  <span class="timeline__date">2017 — 2018</span>
+                </div>
+                <p class="timeline__org"><strong>emlyon Business School</strong></p>
+              </li>
+              <li class="timeline__item">
+                <div class="timeline__head">
+                  <h3 class="timeline__title">MEng, Mechanical Engineering</h3>
+                  <span class="timeline__date">2005 — 2008</span>
+                </div>
+                <p class="timeline__org"><strong>Université de Technologie de Belfort-Montbéliard (UTBM)</strong></p>
+              </li>
+              <li class="timeline__item">
+                <div class="timeline__head">
+                  <h3 class="timeline__title">BEng, Industrial Engineering</h3>
+                  <span class="timeline__date">2002 — 2005</span>
+                </div>
+                <p class="timeline__org"><strong>Lebanese University, Faculty of Technology</strong></p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="career__panel" id="panel-certs" role="tabpanel" aria-labelledby="tab-certs" hidden>
+            <ol class="timeline">
+              <li class="timeline__item">
+                <div class="timeline__head">
+                  <h3 class="timeline__title">Project Management Professional (PMP)</h3>
+                  <span class="timeline__date">2021 — valid 2027</span>
+                </div>
+                <p class="timeline__org"><strong>Project Management Institute</strong></p>
+              </li>
+              <li class="timeline__item">
+                <div class="timeline__head">
+                  <h3 class="timeline__title">Business the Nordic Way</h3>
+                  <span class="timeline__date">2018</span>
+                </div>
+                <p class="timeline__org"><strong>Oulu Business School</strong></p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== TOOLKIT ============== -->
+    <section class="section section--alt" id="toolkit">
+      <div class="container">
+        <header class="section__head">
+          <span class="eyebrow">Toolkit</span>
+          <h2 class="section__title">Tools and methods.</h2>
+        </header>
+
+        <div class="toolkit">
+          <div>
+            <h3 class="toolkit__col-title">Project &amp; Cost</h3>
+            <div class="toolkit__tags">
+              <span class="tag">Primavera P6</span>
+              <span class="tag">MS Project</span>
+              <span class="tag">EVM (CPI / SPI / EAC / ETC / TCPI)</span>
+              <span class="tag">Earned Schedule</span>
+              <span class="tag">AACE-aligned practice</span>
+              <span class="tag">Trello</span>
+              <span class="tag">Jira</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="toolkit__col-title">Data &amp; Analytics</h3>
+            <div class="toolkit__tags">
+              <span class="tag">Power BI</span>
+              <span class="tag">Power Query</span>
+              <span class="tag">@RISK</span>
+              <span class="tag">Monte Carlo</span>
+              <span class="tag">Python</span>
+              <span class="tag">FORTRAN</span>
+              <span class="tag">C/C++</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="toolkit__col-title">Engineering</h3>
+            <div class="toolkit__tags">
+              <span class="tag">AutoCAD</span>
+              <span class="tag">AutoCAD P&amp;ID</span>
+              <span class="tag">Plant 3D</span>
+              <span class="tag">Catia</span>
+              <span class="tag">Ansys</span>
+              <span class="tag">Biowin</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== CONTACT ============== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <header class="section__head">
+          <span class="eyebrow">Contact</span>
+          <h2 class="section__title">Open to senior cost management missions.</h2>
+        </header>
+
+        <div class="contact__grid">
+          <div class="contact__info">
+            <div class="contact__card">
+              <svg class="contact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+              <div>
+                <p class="contact__card-title">Email</p>
+                <p class="contact__card-value"><a href="mailto:azzam.hannouf@gmail.com">azzam.hannouf@gmail.com</a></p>
+              </div>
+            </div>
+            <div class="contact__card">
+              <svg class="contact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-7.5-7-12a7 7 0 1 1 14 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              <div>
+                <p class="contact__card-title">Location</p>
+                <p class="contact__card-value">Lyon, France</p>
+              </div>
+            </div>
+            <div class="contact__card">
+              <svg class="contact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              <div>
+                <p class="contact__card-title">LinkedIn</p>
+                <p class="contact__card-value"><a href="https://www.linkedin.com/in/azzamh/" rel="noopener noreferrer" target="_blank">linkedin.com/in/azzamh</a></p>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact__form" action="https://formsubmit.co/azzam.hannouf@gmail.com" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New message from azzalgo.github.io">
+            <input class="field__honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <div class="field">
+              <label class="field__label" for="contact-name">Your name</label>
+              <input class="field__input" id="contact-name" type="text" name="name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label class="field__label" for="contact-email">Your email</label>
+              <input class="field__input" id="contact-email" type="email" name="email" required autocomplete="email" inputmode="email">
+            </div>
+            <div class="field">
+              <label class="field__label" for="contact-subject">Subject</label>
+              <input class="field__input" id="contact-subject" type="text" name="subject" required>
+            </div>
+            <div class="field">
+              <label class="field__label" for="contact-message">Your message</label>
+              <textarea class="field__textarea" id="contact-message" name="message" rows="6" required></textarea>
+            </div>
+            <div>
+              <button type="submit" class="btn btn--primary">
+                Send message
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="footer__brand" href="#top">Azzam HANNOUF</a>
+          <p class="footer__tagline">Cost Management &amp; EVM Consultant. Senior cost discipline for billion-euro industrial programmes.</p>
+        </div>
+        <div>
+          <p class="footer__heading">Sections</p>
+          <ul class="footer__links">
+            <li><a class="footer__link" href="#about">About</a></li>
+            <li><a class="footer__link" href="#expertise">Expertise</a></li>
+            <li><a class="footer__link" href="#engagements">Engagements</a></li>
+            <li><a class="footer__link" href="#career">Career</a></li>
+            <li><a class="footer__link" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__heading">Elsewhere</p>
+          <div class="footer__socials">
+            <a class="footer__social" href="https://www.linkedin.com/in/azzamh/" rel="noopener noreferrer" target="_blank" aria-label="LinkedIn profile (opens in new tab)">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.45c.97 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            </a>
+            <a class="footer__social" href="https://github.com/AzzAlgo" rel="noopener noreferrer" target="_blank" aria-label="GitHub profile (opens in new tab)">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.17c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.1-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.11-.77.42-1.3.76-1.6-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <p class="footer__copy">© 2026 Azzam HANNOUF. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <a class="scrollup" id="scroll-up" href="#top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+  </a>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
 </html>

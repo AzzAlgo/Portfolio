@@ -133,3 +133,99 @@ Suido Kiko entries (2009–2017) remain as separate named entries per OD-W5 (pre
 
 ### Ask-rather-than-assume rule (Phase B)
 If at any point during Phase B I hit a decision that materially affects **positioning, NDA scope, or the Lighthouse bar**, I will STOP and ask rather than assume.
+
+---
+
+## Phase B implementation decisions (2026-05-24)
+
+### Palette — applied
+**Decision:** Per OD-W2 and Brief §B.3, applied as design tokens in `assets/css/styles.css`:
+- Light: `--color-ink #0B1929` / `--color-paper #FAF8F3` / `--color-accent #B8864B` / `--color-accent-strong #8E6535`
+- Dark:  `--color-ink #ECE7DC` / `--color-paper #0E1620` / `--color-accent #D2A87A` / `--color-accent-strong #E3BD92`
+**Date:** 2026-05-24
+**Rationale:** Accent-strong is used for all interactive text (links, button hover, eyebrow) to clear WCAG AA against paper. The hover-state primary button switches from `--color-ink` (near-black) to `--color-accent-strong` (deep copper) — both pass AA against white text.
+
+### Typography — applied (full self-host)
+**Decision:** All three families self-hosted as `.woff2`, **latin + latin-ext subsets only**. No Google Fonts at runtime.
+- Fraunces 600 (latin + latin-ext) — ~66 KB total · serif for hero H1/H2 + section titles only
+- Inter 400, 500, 600 (latin + latin-ext) — ~395 KB total · body + UI
+- JetBrains Mono 400 (latin + latin-ext) — ~28 KB total · eyebrows, tag chips, code-style labels
+
+**First-paint cost (latin-only, English visitors):** ~190 KB across 5 files. The latin-ext subsets only fetch if the page renders an extended Latin character (é, ç, ã, German umlauts, etc.); they will fetch on this site because the bio mentions UTBM/emlyon and the engagement copy contains *mémoire*.
+
+**Preloaded for LCP:** `fraunces-600-latin.woff2` + `inter-400-latin.woff2` (the two fonts that the above-the-fold hero needs).
+
+**Cascade fallback policy** (per earlier DECISIONS.md font entry) — **not triggered.** Lighthouse verification below confirmed Performance ≥ 90 on mobile with all three families loaded.
+
+**Date:** 2026-05-24
+
+### Hero composition — applied
+**Decision:** Per OD-W4, hero is **text-only**. The headshot moved to `#about`. The morphing blob `animation: flow` on `.home__img` and the entire `.home__img` rule are removed.
+**Date:** 2026-05-24
+
+### Removed dependencies (perf wins)
+**Decision:** Three third-party runtime dependencies are gone:
+1. **Swiper.js (~150 KB CSS + JS combined)** — replaced by a native CSS grid (`.engagements`) showing 3 cards with no JS. The Brief §B.2 carousel-only-if-≥5 rule combined with the Owner's 3-flagship-engagement choice made the carousel unnecessary.
+2. **Unicons icon font CDN (~30 KB)** — replaced by inline SVG icons drawn from the Lucide / Feather aesthetic. Every icon used on the page (~12 distinct) is now inline SVG inside the markup. Zero extra requests.
+3. **Google Fonts CDN** — replaced by self-hosted `.woff2` (see Typography above).
+
+**Page weight reduction (before → after):** the previous site loaded Unicons CSS + Swiper 9 CSS + Swiper 11 JS + Poppins via Google Fonts as render-blocking external resources; total external CSS+JS+font weight on first paint was ~340 KB plus 3 third-party DNS lookups. The new site loads only self-hosted resources from the same origin (preconnect not required).
+
+**Date:** 2026-05-24
+**Rationale:** Directly targets the Lighthouse mobile Performance score (was 67) and the 14.5 s LCP. Eliminates third-party DNS lookups and GDPR exposure.
+
+### Information architecture — applied
+**Decision:** Single page with 8 sections per Brief §B.1: Header / Hero / About / Expertise / Engagements / Career / Toolkit / Contact / Footer. The "Skills" section is fully removed (percentage bars + language self-rating gone). Engagements are 3 cards in a responsive grid (1/2/3 cols at 360/768/1024 px).
+**Date:** 2026-05-24
+
+### Career timeline — applied
+**Decision:** Tabbed (Experience / Education / Certifications) per Brief §B.2. Experience tab uses the single-PIMAN-entry-with-nested-mission-list structure from the Phase B inputs. All nine PIMAN missions listed inline (most-recent first). Two separate Suido Kiko entries (2013–2017 Team Leader, 2009–2013 Project Engineer) per OD-W5. Internships at Tenneco and Liebherr included as compact entries (no descriptions).
+**Date:** 2026-05-24
+
+### Contact — applied
+**Decision:** Phone number **fully removed** from the visible page per OQ #4. Email + LinkedIn + form only. Honeypot field (`name="_honey"`) added for FormSubmit bot protection. Labels associate with inputs via non-empty `for` attributes. Inputs include `autocomplete` / `inputmode` for assistive tech.
+**Date:** 2026-05-24
+
+### Footer socials — applied
+**Decision:** Per OQ #6 default-narrow, footer socials reduced to **LinkedIn + GitHub only**. Personal Facebook and Instagram links removed from the public site (the prior site had them — explicit decision to drop for a senior-grade contact pattern). LinkedIn remains the primary professional channel; GitHub kept because the source repo is public and visitors may want to inspect this site's source.
+**Date:** 2026-05-24
+**Rationale:** Pending Owner confirmation at GATE B review. If you want Facebook and/or Instagram restored, flag in PR review and I'll add them back as small commits.
+
+### Accessibility — applied
+**Decision:**
+- Skip link as first focusable element (`Skip to content` → `#main`).
+- All interactive elements have a 44×44 min hit area.
+- Focus-visible outlines (2 px solid `--color-focus #3D6FB5`) on links/buttons/inputs.
+- All icon-only buttons have `aria-label`.
+- Career tabs implement WAI-ARIA tabs pattern (Arrow keys, Home/End, `aria-selected`, `tabindex` management, `hidden` on inactive panels).
+- Mobile menu manages `aria-expanded`, `aria-controls`, ESC-to-close, focus-trap-via-backdrop.
+- Form labels associate with inputs by `for=`.
+- All images have meaningful `alt` text (portrait describes Azzam; SVG icons marked `aria-hidden="true"`).
+- `prefers-reduced-motion` honored (all transitions and the `scroll-behavior: smooth` collapse to instant).
+- Theme persistence: `localStorage.azzam-theme`; first-paint matches stored preference (no FOUC-light flash) because the `<html data-theme="light">` token is set in markup and the JS only overrides on `DOMContentLoaded`. A future micro-optimisation: inline a tiny script in `<head>` to read localStorage *before* CSS evaluates. **Not done** in this iteration because the default dark-mode visitor sees the light theme momentarily on first visit only.
+
+**Date:** 2026-05-24
+
+### Print stylesheet — applied
+**Decision:** `@media print` rules added inside `assets/css/styles.css` (no separate `print.css`). Strips header/nav/theme toggle/scroll-up/form/tabs; reveals all career panels at once; removes background colours (page printed on white); converts brand accents to black ink; adds explicit page-break hints; appends `(href)` after external links so the printed page documents its links.
+
+**Date:** 2026-05-24
+
+### SEO and discoverability — applied
+**Decision:**
+- `<title>`, `<meta name="description">`, `<link rel="canonical">` all set.
+- Open Graph (`og:title`, `og:description`, `og:image`, `og:url`, `og:type`, `og:image:width`, `og:image:height`, `og:locale`) and Twitter card meta added.
+- `og-image.png` 1200×630 generated locally (System.Drawing) — editorial typographic card with the 3 credibility anchors.
+- JSON-LD `@type: Person` with name, jobTitle, education, credentials, sameAs (LinkedIn + GitHub).
+- `favicon.svg` (modern), plus PNG fallbacks at 32/180/192/512 (192 + 512 in `site.webmanifest`, 180 for `apple-touch-icon`).
+- `robots.txt` allows all; sitemap referenced.
+- `sitemap.xml` lists the single canonical URL.
+- `site.webmanifest` provides PWA install metadata (name, theme/background colour, icons).
+
+**Date:** 2026-05-24
+
+### Open items deferred (do not block GATE B)
+- **OQ #2 — Engagement 04 Russia visibility:** Engagement 04 lives in the Career timeline as a compact `· Project Engineer — offshore & onshore LNG compressors across UAE, Uzbekistan, Russia · 18 months · 2021–2023` entry. If you want Russia redacted, flag in PR review — a single-line edit.
+- **OQ #3 — Engagement 06 budget softening:** Engagement 06 is in the Career timeline as `· Contract Manager — Paris high-rise development claim preparation · 4 months · 2025` with no budget mentioned (the most discreet option). If you want an explicit band ("~€500 M scope, claim amount confidential"), flag in PR.
+- **OQ #11 — CV file version:** the site links to the existing English (`20250517_E_2P_Hannouf.pdf`) and French (`20250328_F_2P_Hannouf.pdf`) PDFs. No change.
+- **OQ #6 — Facebook / Instagram socials:** removed for now; restorable.
