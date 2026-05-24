@@ -32,7 +32,7 @@
 
 - **Eyebrow** *(small caps tag above H1)*: `Senior Consultant`
 - **H1:** `Azzam HANNOUF`
-- **H2 (the positioning):** `Cost Management & EVM for billion-euro industrial programmes.`
+- **H2 (the positioning):** `Cost Management & EVM for large projects.`
 - **Subline:** `Fifteen years across nuclear, energy, water and aerospace. PMP. MBA Finance.`
 - **Stat row (3 anchors, side by side on desktop, stacked on mobile):**
   - **`> €1 B`** — `largest programme scope`
@@ -51,11 +51,11 @@
 - **Bio (3 paragraphs):**
   > I lead cost management on complex industrial programmes. Most recently, as PMO Cost Manager on a billion-euro Advanced Modular Reactor programme, I authored the Cost Management and Cost Estimate Plans, ran variance and EVM analysis against the WBS, and structured executive reporting at programme management level.
   >
-  > My background blends mechanical engineering (UTBM), an MBA in Finance from emlyon, and a PMP certification valid through 2027. That triangulation lets me operate at the intersection of engineering, finance and programme governance — the seat where senior cost decisions actually get made.
+  > My background blends mechanical engineering (UTBM), an MBA in Finance from emlyon, and being PMP certified. That triangulation lets me operate at the intersection of engineering, finance and programme governance — the seat where senior cost decisions actually get made.
   >
   > I work in English and French across France, the GCC and Northern Europe.
 - **Credential strip (3 chips under the bio):**
-  - `PMP — valid through 2027`
+  - `PMP certified`
   - `MBA Finance — emlyon`
   - `MEng Mechanical — UTBM`
 - **Languages chip strip:** `English · French · Arabic`
@@ -65,7 +65,7 @@
 ## Expertise — 4 pillars
 
 Eyebrow: `Expertise`
-Heading: `What I bring to a programme.`
+Heading: `What I bring to a project.`
 
 ### Pillar 1 — Cost Management & EVM
 > Cost Estimate Plans, Cost Management Plans, EVM (CPI, SPI, EAC, ETC, TCPI), Earned Schedule, baseline control. AACE-aligned practice in addition to PMI standards.
@@ -88,7 +88,7 @@ Heading: `Recent delivery.`
 
 > **Card 1 — Engagement 01 (NDA-anonymised)**
 > Tag chips: `nuclear` `generation-IV`
-> Role: `PMO — Cost Manager (then Risk Manager)`
+> Role: `PMO — Cost Manager`
 > Metrics row: `> €1 B` · `12 months` · `France · 2024–2025`
 > Body:
 > *Cost management on the lead programme of an innovator in Generation-IV Advanced Modular Reactors — lead-cooled, fuelled by reprocessed nuclear waste. Authored the Cost Management and Cost Estimate Plans, structured cost and resource allocation against the WBS, and ran EVM-based variance analysis. In the final phase, took over the risk discipline — deployed the risk-management process, maintained the Risk Register and Response Plans, and produced Risk Reports aligned with cost and schedule.*
@@ -105,7 +105,7 @@ Heading: `Recent delivery.`
 > **Card 3 — Engagement 03 (NDA-anonymised, current)**
 > Tag chips: `nuclear` `defence`
 > Role: `UK Program Manager`
-> Metrics row: `multi-project portfolio` · `12 months (current)` · `France → United Kingdom · 2025–present`
+> Metrics row: `multi-project program` · `France → United Kingdom · Current`
 > Body:
 > *Supervision of an international engineering plateau at a manufacturer of valves for nuclear, defence, energy and low-carbon solutions. The plateau covers around ten UK-bound projects across two flagship Generation-III nuclear programmes. Supervise four project managers; enforce internal and contractual processes; drive planning, KPI tracking and inter-discipline interfaces.*
 > Outcome line: *Improved planning reliability through KPI tracking on activity duration estimates. Minimised slippage on critical milestones via structured contingency on grey-area handovers.*
@@ -133,7 +133,7 @@ Heading: `Fifteen years of delivery.`
 > Nine missions delivered across nuclear, oil & gas, water, aerospace, consumer goods and construction. Most-recent first:
 > · **UK Program Manager** — international nuclear & defence valves plateau · 12 months · 2025–present
 > · **Project Manager — Product Development** — mass-market consumer product launch · 6 months · 2024
-> · **PMO Cost Manager (then Risk Manager)** — > €1 B Advanced Modular Reactor programme · 12 months · 2024–2025
+> · **PMO Cost Manager** — > €1 B Advanced Modular Reactor programme · 12 months · 2024–2025
 > · **Senior Project Manager** — Gen-III nuclear LV switchboards · 13 months · 2022–2023
 > · **Acceleration Manager** — aircraft final assembly · 3 months · 2023–2024
 > · **Project Engineer** — offshore & onshore LNG compressors across UAE / Uzbekistan / Russia · 18 months · 2021–2023
@@ -156,7 +156,7 @@ Heading: `Fifteen years of delivery.`
 
 ### Tab 3 — Certifications
 
-> **Project Management Professional (PMP)** — Project Management Institute — 2021, valid through 2027
+> **Project Management Professional (PMP)** — Project Management Institute — 2021
 > **Business the Nordic Way** — Oulu Business School — 2018
 
 ---

@@ -45,7 +45,7 @@ Outcome     — measurable result (quantified where possible)
 ## ★ Engagement 01 — PMO Cost Manager · Advanced Modular Reactor programme
 
 `Nuclear · Generation-IV reactors`
-**Role:** PMO — Cost Manager (then Risk Manager)
+**Role:** PMO — Cost Manager
 **Budget:** > **1 B€**
 **Duration:** 12 months
 **Country:** France
@@ -106,8 +106,8 @@ across the organisation.
 
 `Nuclear · Defence · Low-carbon valves`
 **Role:** UK Program Manager
-**Budget:** *multi-project portfolio*
-**Duration:** 12 months (current)
+**Budget:** *multi-project program*
+**Duration:** 12 months
 **Country:** France
 **Year:** 2025–present
 
