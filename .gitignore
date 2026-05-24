@@ -1,0 +1,7 @@
+# Google Drive sync artifacts
+.tmp.driveupload/
+.tmp.drivedownload/
+
+# OS junk
+.DS_Store
+Thumbs.db
