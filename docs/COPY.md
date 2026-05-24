@@ -8,10 +8,10 @@
 ## Page-level meta
 
 - **`<title>`:** `Azzam HANNOUF — Cost Management & EVM for billion-euro industrial programs`
-- **`<meta name="description">`:** `Senior consultant in Cost Management and EVM. Fifteen years delivering nuclear, energy, water and aerospace programmes — including a billion-euro Advanced Modular Reactor. PMP, MBA Finance.`
+- **`<meta name="description">`:** `Senior consultant in Cost Management and EVM. Fifteen years delivering nuclear, energy, water and aerospace programs — including a billion-euro Advanced Modular Reactor. PMP, MBA Finance.`
 - **`<meta name="author">`:** `Azzam HANNOUF`
 - **OpenGraph / Twitter card title:** `Azzam HANNOUF — Cost Management & EVM Consultant`
-- **OpenGraph description:** `Cost Management and EVM for billion-euro industrial programmes. PMP. MBA Finance. Fifteen years across nuclear, energy, water and aerospace.`
+- **OpenGraph description:** `Cost Management and EVM for billion-euro industrial programs. PMP. MBA Finance. Fifteen years across nuclear, energy, water and aerospace.`
 
 ---
 
@@ -35,7 +35,7 @@
 - **H2 (the positioning):** `Cost Management & EVM for large projects.`
 - **Subline:** `Fifteen years across nuclear, energy, water and aerospace. PMP. MBA Finance.`
 - **Stat row (3 anchors, side by side on desktop, stacked on mobile):**
-  - **`> €1 B`** — `largest programme scope`
+  - **`> €1 B`** — `largest program scope`
   - **`15+ yrs`** — `delivery`
   - **`4 industries`** — `nuclear · energy · water · aerospace`
 - **CTAs:**
@@ -49,9 +49,9 @@
 - **Section eyebrow:** `About`
 - **Section heading:** `A reference on cost management.`
 - **Bio (3 paragraphs):**
-  > I lead cost management on complex industrial programmes. Most recently, as PMO Cost Manager on a billion-euro Advanced Modular Reactor programme, I authored the Cost Management and Cost Estimate Plans, ran variance and EVM analysis against the WBS, and structured executive reporting at programme management level.
+  > I lead cost management on complex industrial programs. Most recently, as PMO Cost Manager on a billion-euro Advanced Modular Reactor program, I authored the Cost Management and Cost Estimate Plans, ran variance and EVM analysis against the WBS, and structured executive reporting at program management level.
   >
-  > My background blends mechanical engineering (UTBM), an MBA in Finance from emlyon, and being PMP certified. That triangulation lets me operate at the intersection of engineering, finance and programme governance — the seat where senior cost decisions actually get made.
+  > My background blends mechanical engineering (UTBM), an MBA in Finance from emlyon, and being PMP certified. That triangulation lets me operate at the intersection of engineering, finance and program governance — the seat where senior cost decisions actually get made.
   >
   > I work in English and French across France, the GCC and Northern Europe.
 - **Credential strip (3 chips under the bio):**
@@ -74,10 +74,10 @@ Heading: `What I bring to a project.`
 > PMO structure, cost and risk processes, KPI design, executive reporting, lessons-learned systems. Designed and ran from greenfield to operating cadence.
 
 ### Pillar 3 — Risk & Contingency
-> Quantitative risk analysis with @RISK, Monte Carlo modelling, AACE-aligned contingency setting. Risk registers, response plans and stakeholder workshops.
+> Quantitative risk analysis with @RISK, Monte Carlo modeling, AACE-aligned contingency setting. Risk registers, response plans and stakeholder workshops.
 
 ### Pillar 4 — Contract & Claim Management
-> Claim quantification, schedule and chronology analysis, variance investigation, structured *mémoire technique* for disputes. End-to-end claim defence on industrial and construction contracts.
+> Claim quantification, schedule and chronology analysis, variance investigation, structured *technical memorandum* for disputes. End-to-end claim defense on industrial and construction contracts.
 
 ---
 
@@ -86,29 +86,29 @@ Heading: `What I bring to a project.`
 Eyebrow: `Selected engagements`
 Heading: `Recent delivery.`
 
-> **Card 1 — Engagement 01 (NDA-anonymised)**
+> **Card 1 — Engagement 01 (NDA-anonymized)**
 > Tag chips: `nuclear` `generation-IV`
 > Role: `PMO — Cost Manager`
 > Metrics row: `> €1 B` · `12 months` · `France · 2024–2025`
 > Body:
-> *Cost management on the lead programme of an innovator in Generation-IV Advanced Modular Reactors — lead-cooled, fuelled by reprocessed nuclear waste. Authored the Cost Management and Cost Estimate Plans, structured cost and resource allocation against the WBS, and ran EVM-based variance analysis. In the final phase, took over the risk discipline — deployed the risk-management process, maintained the Risk Register and Response Plans, and produced Risk Reports aligned with cost and schedule.*
-> Outcome line: *Structured cost piloting on a > €1 B programme. Materially improved financial visibility and the quality of strategic decision-making at programme management level.*
+> *Cost management on the lead program of an innovator in Generation-IV Advanced Modular Reactors — lead-cooled, fueled by reprocessed nuclear waste. Authored the Cost Management and Cost Estimate Plans, structured cost and resource allocation against the WBS, and ran EVM-based variance analysis. In the final phase, took over the risk discipline — deployed the risk-management process, maintained the Risk Register and Response Plans, and produced Risk Reports aligned with cost and schedule.*
+> Outcome line: *Structured cost piloting on a > €1 B program. Materially improved financial visibility and the quality of strategic decision-making at program management level.*
 
-> **Card 2 — Engagement 02 (NDA-anonymised)**
+> **Card 2 — Engagement 02 (NDA-anonymized)**
 > Tag chips: `nuclear` `EPR` `generation-III`
 > Role: `Senior Project Manager`
 > Metrics row: `~€110 M` · `13 months` · `France → United Kingdom · 2022–2023`
 > Body:
 > *End-to-end project management on the low-voltage switchboard package for a Generation-III nuclear power plant under construction in the United Kingdom. Led an international team of project managers and engineers. Coordinated production, ran continuous risk analysis, set up agile rituals — daily stand-ups, a dedicated war room — and cleared change orders with contractual impact analysis.*
-> Outcome line: *First 18 switchboard panels delivered on site on time, unlocking downstream installation without delay. Lessons-learned capitalised and disseminated as standard practice.*
+> Outcome line: *First 18 switchboard panels delivered on site on time, unlocking downstream installation without delay. Lessons-learned capitalized and disseminated as standard practice.*
 
-> **Card 3 — Engagement 03 (NDA-anonymised, current)**
-> Tag chips: `nuclear` `defence`
+> **Card 3 — Engagement 03 (NDA-anonymized, current)**
+> Tag chips: `nuclear` `defense`
 > Role: `UK Program Manager`
 > Metrics row: `multi-project program` · `France → United Kingdom · Current`
 > Body:
-> *Supervision of an international engineering plateau at a manufacturer of valves for nuclear, defence, energy and low-carbon solutions. The plateau covers around ten UK-bound projects across two flagship Generation-III nuclear programmes. Supervise four project managers; enforce internal and contractual processes; drive planning, KPI tracking and inter-discipline interfaces.*
-> Outcome line: *Improved planning reliability through KPI tracking on activity duration estimates. Minimised slippage on critical milestones via structured contingency on grey-area handovers.*
+> *Supervision of an international engineering plateau at a manufacturer of valves for nuclear, defense, energy and low-carbon solutions. The plateau covers around ten UK-bound projects across two flagship Generation-III nuclear programs. Supervise four project managers; enforce internal and contractual processes; drive planning, KPI tracking and inter-discipline interfaces.*
+> Outcome line: *Improved planning reliability through KPI tracking on activity duration estimates. Minimized slippage on critical milestones via structured contingency on grey-area handovers.*
 
 > **NDA disclosure line below the card grid:**
 > *Most recent engagements are delivered under a consulting framework agreement and described under non-disclosure. Client names and project names are withheld; role, sector, budget range, duration and outcomes are accurate.*
@@ -131,9 +131,9 @@ Heading: `Fifteen years of delivery.`
 > **PIMAN Group — Senior Consultant in Cost & Project Management**
 > 2018 – present · Lyon, France
 > Nine missions delivered across nuclear, oil & gas, water, aerospace, consumer goods and construction. Most-recent first:
-> · **UK Program Manager** — international nuclear & defence valves plateau · 12 months · 2025–present
+> · **UK Program Manager** — international nuclear & defense valves plateau · 12 months · 2025–present
 > · **Project Manager — Product Development** — mass-market consumer product launch · 6 months · 2024
-> · **PMO Cost Manager** — > €1 B Advanced Modular Reactor programme · 12 months · 2024–2025
+> · **PMO Cost Manager** — > €1 B Advanced Modular Reactor program · 12 months · 2024–2025
 > · **Senior Project Manager** — Gen-III nuclear LV switchboards · 13 months · 2022–2023
 > · **Acceleration Manager** — aircraft final assembly · 3 months · 2023–2024
 > · **Project Engineer** — offshore & onshore LNG compressors across UAE / Uzbekistan / Russia · 18 months · 2021–2023
