@@ -172,6 +172,178 @@
     io.observe(trigger);
   }
 
+  /* ----------- MOTION HELPERS ----------- */
+  const reduced = () =>
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canHover = () =>
+    window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const rafThrottle = (fn) => {
+    let frame = null, lastArgs = null;
+    return (...args) => {
+      lastArgs = args;
+      if (frame !== null) return;
+      frame = requestAnimationFrame(() => {
+        frame = null;
+        fn(...lastArgs);
+      });
+    };
+  };
+
+  /* ----------- A1 MAGNETIC PRIMARY CTA ----------- */
+  function initMagneticCTA() {
+    if (reduced() || !canHover()) return;
+    const btn = document.querySelector('.hero__ctas .btn--primary');
+    if (!btn) return;
+    const parent = btn.parentElement;
+    const RADIUS = 80;
+    const MAX = 4;
+    let rect = null;
+    const refreshRect = () => { rect = btn.getBoundingClientRect(); };
+    const onMove = rafThrottle((e) => {
+      if (!rect) refreshRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = e.clientX - cx;
+      const dy = e.clientY - cy;
+      const dist = Math.hypot(dx, dy);
+      if (dist < RADIUS) {
+        const k = (RADIUS - dist) / RADIUS;
+        btn.style.transform = `translate(${dx * k * (MAX / RADIUS)}px, ${dy * k * (MAX / RADIUS)}px)`;
+      } else {
+        btn.style.transform = '';
+      }
+    });
+    const onLeave = () => { btn.style.transform = ''; };
+    btn.style.transition = 'transform 300ms ease-out';
+    parent.addEventListener('mousemove', onMove);
+    parent.addEventListener('mouseleave', onLeave);
+    window.addEventListener('scroll', () => { rect = null; }, { passive: true });
+    window.addEventListener('resize', () => { rect = null; });
+  }
+
+  /* ----------- A2 STAT HOVER FLICKER ----------- */
+  function initStatFlicker() {
+    if (reduced() || !canHover()) return;
+    const stats = $$('.hero__stats .hero__stat-num');
+    stats.forEach((el) => {
+      const original = el.textContent;
+      let busy = false;
+      el.addEventListener('mouseenter', () => {
+        if (busy) return;
+        busy = true;
+        const bumped = original.replace(/\d+/, (n) => String(parseInt(n, 10) + 1));
+        el.textContent = bumped;
+        setTimeout(() => { el.textContent = original; }, 150);
+        setTimeout(() => { busy = false; }, 300);
+      });
+    });
+  }
+
+  /* ----------- A3 ENGAGEMENT BORDER SWEEP — lock state ----------- */
+  function initEngagementSweepLock() {
+    if (!canHover()) return; /* touch devices: hover CSS won't fire anyway */
+    $$('.engagement').forEach((card) => {
+      const onEnter = () => {
+        /* wait one frame to let the CSS transition start, then lock at end */
+        setTimeout(() => card.classList.add('is-swept'), 650);
+        card.removeEventListener('mouseenter', onEnter);
+      };
+      card.addEventListener('mouseenter', onEnter, { once: false });
+    });
+  }
+
+  /* ----------- A4 CAREER TIMELINE PROGRESSIVE DRAW ----------- */
+  function initTimelineDraw() {
+    const section = $('#career');
+    if (!section) return;
+    /* Inject one rule per panel timeline (so each tab has its own rule) */
+    $$('.career__panel .timeline', section).forEach((tl) => {
+      if (tl.querySelector('.timeline__rule')) return;
+      const rule = document.createElement('span');
+      rule.className = 'timeline__rule';
+      rule.setAttribute('aria-hidden', 'true');
+      tl.prepend(rule);
+    });
+    if (reduced()) return; /* CSS shows scaleY(1) under reduced motion */
+    const rules = $$('.career__panel .timeline__rule', section);
+    const update = rafThrottle(() => {
+      const rect = section.getBoundingClientRect();
+      const h = section.offsetHeight;
+      const scrolled = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / h));
+      const t = `scaleY(${scrolled})`;
+      rules.forEach((r) => { r.style.transform = t; });
+    });
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+  }
+
+  /* ----------- A5 SECTION TITLE LETTER STAGGER ----------- */
+  function initSectionTitleStagger() {
+    const titles = $$('h2.section__title');
+    if (!titles.length) return;
+    /* Split each title into per-letter spans wrapped in an aria-hidden span,
+       and add a sr-only sibling holding the original text. */
+    titles.forEach((h2) => {
+      if (h2.dataset.split === 'true') return;
+      const original = h2.textContent;
+      const sr = document.createElement('span');
+      sr.className = 'sr-only';
+      sr.textContent = original;
+      const visible = document.createElement('span');
+      visible.setAttribute('aria-hidden', 'true');
+      [...original].forEach((ch, i) => {
+        const span = document.createElement('span');
+        span.className = 'title-letter';
+        span.style.setProperty('--i', i);
+        span.textContent = ch;
+        visible.appendChild(span);
+      });
+      h2.textContent = '';
+      h2.appendChild(sr);
+      h2.appendChild(visible);
+      h2.classList.add('has-letters');
+      h2.dataset.split = 'true';
+    });
+
+    if (reduced()) {
+      titles.forEach((h2) => h2.classList.add('is-visible'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
+    titles.forEach((h2) => io.observe(h2));
+  }
+
+  /* ----------- A6 ENGAGEMENTS SPOTLIGHT ----------- */
+  function initEngagementsSpotlight() {
+    if (reduced() || !canHover()) return;
+    const section = $('#engagements');
+    if (!section) return;
+    let rect = null;
+    const refreshRect = () => { rect = section.getBoundingClientRect(); };
+    const onMove = rafThrottle((e) => {
+      if (!rect) refreshRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      section.style.setProperty('--mx', `${x}%`);
+      section.style.setProperty('--my', `${y}%`);
+    });
+    const onEnter = () => { refreshRect(); section.classList.add('is-spotlight'); };
+    const onLeave = () => { section.classList.remove('is-spotlight'); };
+    section.addEventListener('mouseenter', onEnter);
+    section.addEventListener('mousemove', onMove);
+    section.addEventListener('mouseleave', onLeave);
+    window.addEventListener('scroll', () => { rect = null; }, { passive: true });
+    window.addEventListener('resize', () => { rect = null; });
+  }
+
   /* ----------- INIT ----------- */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
@@ -187,6 +359,13 @@
     initScrollSpy();
     initCareerTabs();
     initScrollUp();
+    /* Motion pass */
+    initSectionTitleStagger();
+    initTimelineDraw();
+    initEngagementSweepLock();
+    initMagneticCTA();
+    initStatFlicker();
+    initEngagementsSpotlight();
   }
 
 })();

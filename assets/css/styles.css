@@ -199,6 +199,14 @@ html {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  /* A3 instant — border line shows immediately */
+  .engagement::before { transform: scaleX(1); transition: none; }
+  /* A4 instant — timeline rule full height (JS guard also skips work) */
+  .timeline__rule { transform: scaleY(1); }
+  /* A5 instant — all letters visible together */
+  .section__title .title-letter { opacity: 1; transform: none; transition: none; transition-delay: 0s; }
+  /* A6 disabled — no spotlight */
+  #engagements::before { display: none; }
 }
 
 body {
@@ -278,6 +286,28 @@ ul { list-style: none; }
   background-color: var(--color-paper-alt);
 }
 
+/* A6 spotlight: faint copper radial gradient that follows the cursor inside
+   the Engagements section. Disabled on touch via @media (hover: hover). */
+#engagements { position: relative; isolation: isolate; }
+#engagements::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    400px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in oklab, var(--color-accent) 6%, transparent),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+#engagements > .container { position: relative; z-index: 1; }
+@media (hover: hover) and (pointer: fine) {
+  #engagements.is-spotlight::before { opacity: 1; }
+}
+
 .section__head {
   margin-bottom: var(--space-7);
   max-width: 60ch;
@@ -296,6 +326,20 @@ ul { list-style: none; }
 .section__title {
   font-size: var(--fs-h2);
   margin-bottom: var(--space-4);
+}
+/* A5 letter stagger: JS splits the title into per-letter spans on first
+   reveal; the parent gets .is-visible. Spaces preserved via white-space. */
+.section__title.has-letters { white-space: pre-wrap; }
+.section__title .title-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 200ms ease-out, transform 200ms ease-out;
+  transition-delay: calc(var(--i, 0) * 20ms);
+}
+.section__title.is-visible .title-letter {
+  opacity: 1;
+  transform: translateY(0);
 }
 .section__lead {
   font-size: var(--fs-lead);
@@ -615,20 +659,27 @@ ul { list-style: none; }
   }
 }
 
-.about__portrait {
+.about__img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
   width: 100%;
-  max-width: 280px;
-  aspect-ratio: 1 / 1;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--color-paper-alt);
-  border: 1px solid var(--color-rule);
-  box-shadow: var(--shadow-sm);
+  max-width: 240px;
 }
-.about__portrait img {
+@media (min-width: 768px) {
+  .about__img-wrap { max-width: 320px; }
+}
+.about__img {
+  display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 507 / 669;
+  border-radius: var(--radius-lg);
   object-fit: cover;
+  object-position: center top;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-rule);
   filter: saturate(0.95) contrast(1.02);
 }
 
@@ -734,13 +785,17 @@ ul { list-style: none; }
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 3px;
+  height: 2px;
   background: var(--color-accent);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform var(--t-base) var(--ease);
+  transition: transform 600ms ease-out;
 }
-.engagement:hover::before { transform: scaleX(1); }
+@media (hover: hover) and (pointer: fine) {
+  .engagement:hover::before { transform: scaleX(1); }
+}
+/* A3 lock-state: once swept, the line persists; re-hover is a no-op. */
+.engagement.is-swept::before { transform: scaleX(1); transition: none; }
 
 .engagement__tags {
   display: flex;
@@ -854,6 +909,22 @@ ul { list-style: none; }
   display: grid;
   gap: var(--space-5);
   max-width: 70ch;
+  position: relative;
+  padding-left: var(--space-4);
+}
+/* A4 progressive draw: vertical rule, scaleY driven by JS scroll */
+.timeline__rule {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: var(--color-accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  border-radius: 1px;
+  pointer-events: none;
+  will-change: transform;
 }
 
 .timeline__item {
