@@ -175,12 +175,18 @@ run_lighthouse() {
   local form_factor="$1"
   local out_json="/tmp/lh_${form_factor}.json"
   sub "6.${form_factor}"
+  # Lighthouse accepts presets: perf | experimental | desktop.
+  # "mobile" is the default form factor — passed by omitting --preset.
+  local preset_flag=""
+  if [[ "${form_factor}" != "mobile" ]]; then
+    preset_flag="--preset=${form_factor}"
+  fi
   if has npx; then
     code_block_open
     npx --yes lighthouse "${SITE_URL}" \
-      --preset="${form_factor}" \
+      ${preset_flag} \
       --output=json --output-path="${out_json}" \
-      --chrome-flags="--headless --no-sandbox" \
+      --chrome-flags="--headless=new --no-sandbox" \
       --quiet 2>&1 | tail -20 >> "$OUT_FILE" || true
     code_block_close
 
@@ -203,7 +209,7 @@ run_lighthouse() {
 }
 
 run_lighthouse "desktop"
-run_lighthouse "mobile" || run_lighthouse "perf"  # 'perf' fallback if 'mobile' rejected
+run_lighthouse "mobile"
 
 # ------------------------------------------------------------------
 # 7. Manual review reminder
